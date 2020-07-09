@@ -5,7 +5,7 @@ Backend provided by Strapi headless CMS.
 
 
 ## Hooks
-``$ gatsby build`` hook will build site in Gatsby Cloud
+``$ git push origin master`` is hooked to Gatsby cloud, will rebuild site.
 
 ## 💫 Deploy
 
