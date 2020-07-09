@@ -20,7 +20,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     console.log({ allArticles })
     allArticles.forEach(({ id, title, content }) => {
       createPage({
-        path: `/articles/strapi/${id}`,
+        path: `/articles/${id}`,
         component: require.resolve('./src/templates/article'),
         context: {
           id,
