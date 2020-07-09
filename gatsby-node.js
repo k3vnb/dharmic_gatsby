@@ -17,7 +17,6 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
     }
   `).then(result => {
     const allArticles = result.data.allStrapiArticle.nodes;
-    console.log({ allArticles })
     allArticles.forEach(({ id, title, content }) => {
       createPage({
         path: `/articles/${id}`,
