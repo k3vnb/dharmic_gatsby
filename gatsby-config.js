@@ -34,6 +34,12 @@ module.exports = {
           queryLimit: 10000,
           contentTypes: [`article`],
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-172427996-1',
+      },
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
