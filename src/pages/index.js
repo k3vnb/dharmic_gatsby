@@ -11,7 +11,7 @@ const IndexPage = ({ data }) => (
     <SEO title="Home" />
     <ImageHero />
     {data.allStrapiArticle.nodes.map(article => (
-      <Link key={article.id} to={`articles/strapi/${article.id}`}>
+      <Link key={article.id} to={`articles/${article.id}`}>
         <div>
           <h2>{article.title}</h2>
           <p>{article.content}</p>
@@ -30,6 +30,7 @@ export const pageQuery = graphql`
         id
         title
         content
+        updated_at
       }
     }
   }
