@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import './ImageHero.css';
@@ -6,7 +6,7 @@ import './ImageHero.css';
 export default () => {
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "andreas-haslinger-dandelion.jpg" }) {
+      dandelion: file(relativePath: { eq: "andreas-haslinger-dandelion.jpg" }) {
         childImageSharp {
           fluid {
             base64
@@ -19,9 +19,10 @@ export default () => {
       }
     }
   `);
+
   return (
-    <Fragment>
-      <Img fluid={data.file.childImageSharp.fluid} alt="A peaceful dandelion" />
-    </Fragment>
+    <div className="image-container">
+      <Img fluid={data.dandelion.childImageSharp.fluid} alt="A peaceful dandelion" style={{  objectFit: 'cover', objectPosition: 'center' }} imgStyle={{ height: '70vh' }} />
+    </div>
   );
 };

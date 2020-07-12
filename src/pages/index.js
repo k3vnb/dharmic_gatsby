@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import Image from '../components/image';
+// import Image from '../components/image';
+import MainPage from '../components/MainPage/MainPage';
 import ImageHero from '../components/ImageHero/ImageHero';
 import SEO from '../components/seo';
 
 const IndexPage = ({ data }) => (
-  <Layout>
+  <Fragment>
     <SEO title="Home" />
     <ImageHero />
+    <MainPage />
+
     {data.allStrapiArticle.nodes.map(article => (
       <Link key={article.id} to={`articles/${article.id}`}>
         <div>
@@ -18,7 +21,7 @@ const IndexPage = ({ data }) => (
         </div>
       </Link>
     ))}
-  </Layout>
+  </Fragment>
 );
 
 export default IndexPage;
@@ -32,6 +35,9 @@ export const pageQuery = graphql`
         content
         updated_at
       }
+    }
+    strapiMainPageDescription {
+      content
     }
   }
 `;
