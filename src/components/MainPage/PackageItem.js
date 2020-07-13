@@ -8,8 +8,13 @@ const PackageItem = ({ itemDetails: { title, description, price }, image }) => {
       <Img
         fluid={image}
         alt={`${title} representation`}
-        style={{ objectFit: 'cover', objectPosition: 'center', borderRadius: '50%' }}
-        imgStyle={{ height: '70vh', objectPosition: 'center' }}
+        style={{
+          objectFit: 'cover',
+          objectPosition: 'center',
+          height: '200px',
+          width: '100%',
+          borderRadius: '8px 8px 0 0'
+        }}
       />
       <h5 className="package-item__card-title">{title}</h5>
       <p className="package-item__card-description">{description}</p>

@@ -4,23 +4,48 @@
   margin: 2% auto;
 }
 
+.main-page__title {
+  text-align: center;
+  color: #b04200;
+  text-shadow: .5px .5px 1px orange, -.5px -.5px 1px black;
+}
+
 .main-page__package-item-list {
   display: flex;
+  flex-direction: column;
 }
 
 .package-item__card {
-  max-width: 300px;
+  max-width: 30%;
+  max-width: 400px;
   border: 1px solid black;
-  padding: 1%;
   border-radius: 8px;
-  margin: 2%;
+  margin: 2% auto;
+  background-color: #e8e8e8;
 }
 
 .package-item__card-title {
   text-align: center;
-  margin-top: 2%;
+  font-size: 1.1rem;
+  padding: 4% 4% 0;
 }
 
 .package-item__card-description {
   font-size: .8rem;
+  padding: 4%;
+  line-height: 1rem;
+  text-align: justify;
+}
+
+@media screen and (min-width: 950px) {
+  .main-page__package-item-list {
+    flex-direction: row;
+    margin: auto;
+  }
+  .package-item__card {
+    margin: 1%;
+  }
+  .package-item__card-description {
+    font-size: .7rem;
+  }
 }

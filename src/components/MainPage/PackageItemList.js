@@ -26,7 +26,7 @@ export default () => {
           }
         }
       }
-      calmWater: file(relativePath: { eq: "calm-water.jpg" }) {
+      water: file(relativePath: { eq: "beach-dawn-dusk.jpg" }) {
         childImageSharp {
           fluid {
             base64
@@ -50,12 +50,15 @@ export default () => {
       }
     }
   `);
-  const images = [data.calmWater, data.sunTree, data.beachSunset]
+  const images = [data.beachSunset, data.sunTree, data.water]
   return (
-    <div className="main-page__package-item-list">
-      {data.allStrapiPackageItem.nodes.map((item, index) => (
-        <PackageItem key={item.id} itemDetails={item} image={images[index].childImageSharp.fluid} />
-      ))}
-    </div>
+    <section>
+      <h3 className="cinzel main-page__title">Services</h3>
+      <div className="main-page__package-item-list">
+        {data.allStrapiPackageItem.nodes.map((item, index) => (
+          <PackageItem key={item.id} itemDetails={item} image={images[index].childImageSharp.fluid} />
+        ))}
+      </div>
+    </section>
   );
 };
