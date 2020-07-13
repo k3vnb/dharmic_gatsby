@@ -16,12 +16,12 @@
 }
 
 .package-item__card {
-  max-width: 30%;
+  width: 100%;
   max-width: 400px;
   border: 1px solid black;
   border-radius: 8px;
   margin: 2% auto;
-  background-color: #e8e8e8;
+  background-color: #fbf6f0;
 }
 
 .package-item__card-title {
@@ -43,6 +43,7 @@
     margin: auto;
   }
   .package-item__card {
+    width: 30%;
     margin: 1%;
   }
   .package-item__card-description {
