@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Dharmic`,
+    title: `Dharmic Astrology`,
     description: `Dharmic Astrology research, readings, and collections`,
     author: `pdxwebdev.io`,
   },

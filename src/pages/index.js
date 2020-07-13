@@ -8,7 +8,7 @@ import ImageHero from '../components/ImageHero/ImageHero';
 import SEO from '../components/seo';
 
 const IndexPage = ({ data }) => (
-  <Fragment>
+  <Layout>
     <SEO title="Home" />
     <ImageHero />
     <MainPage />
@@ -21,7 +21,7 @@ const IndexPage = ({ data }) => (
         </div>
       </Link>
     ))}
-  </Fragment>
+  </Layout>
 );
 
 export default IndexPage;

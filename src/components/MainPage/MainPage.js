@@ -16,7 +16,19 @@ export default () => {
 
   return (
     <div className="main-page-description">
-      <ReactMarkdown source={data.allStrapiMainPageDescription.nodes[0].content} />
+      <h3
+        className="cinzel"
+        style={{
+          textAlign: 'center',
+          color: '#b04200',
+          textShadow: '.5px .5px 1px orange, -.5px -.5px 1px black',
+        }}
+      >
+        About
+      </h3>
+      <ReactMarkdown
+        source={data.allStrapiMainPageDescription.nodes[0].content}
+      />
     </div>
   );
 };

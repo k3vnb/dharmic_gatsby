@@ -1,3 +1,20 @@
 .image-container {
   max-height: 70vh;
+  position: relative;
+  margin-top: 20px;
+}
+.hero-title {
+  color: white;
+  width: 90vw;
+  text-shadow: -2px 1px 2px #3639f4,2px 2px 1px #2a1788;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform:translateX(-50%);
+}
+.hero-title--top {
+  font-size: 2rem;
+}
+.hero-title--bottom {
+  font-size: 2.3rem;
 }

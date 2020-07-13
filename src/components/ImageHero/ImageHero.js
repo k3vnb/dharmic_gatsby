@@ -17,12 +17,54 @@ export default () => {
           }
         }
       }
+      lily: file(relativePath: { eq: "gautam-krishnan-lily.jpg" }) {
+        childImageSharp {
+          fluid {
+            base64
+            aspectRatio
+            sizes
+            src
+            srcSet
+          }
+        }
+      }
+      moon: file(relativePath: { eq: "gaurav-pikale-moon.jpg" }) {
+        childImageSharp {
+          fluid {
+            base64
+            aspectRatio
+            sizes
+            src
+            srcSet
+          }
+        }
+      }
+      cosmic: file(relativePath: { eq: "greg-rakozy-cosmic.jpg" }) {
+        childImageSharp {
+          fluid {
+            base64
+            aspectRatio
+            sizes
+            src
+            srcSet
+          }
+        }
+      }
     }
   `);
 
   return (
     <div className="image-container">
-      <Img fluid={data.dandelion.childImageSharp.fluid} alt="A peaceful dandelion" style={{  objectFit: 'cover', objectPosition: 'center' }} imgStyle={{ height: '70vh' }} />
+      <Img
+        fluid={data.cosmic.childImageSharp.fluid}
+        alt="An image of the cosmos"
+        style={{ objectFit: 'cover', objectPosition: 'center' }}
+        imgStyle={{ height: '70vh', objectPosition: 'bottom' }}
+      />
+      <div className="hero-title">
+        <h2 className="cinzel hero-title--top">Dharmic Astrology</h2>
+        <h3 className="italianno hero-title--bottom">Astrology that upholds our Evolution</h3>
+      </div>
     </div>
   );
 };
