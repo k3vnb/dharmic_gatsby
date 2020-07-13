@@ -6,6 +6,9 @@ import './ImageHero.css';
 export default () => {
   const data = useStaticQuery(graphql`
     query {
+      strapiMainPageSubtitle {
+        content
+      }
       dandelion: file(relativePath: { eq: "andreas-haslinger-dandelion.jpg" }) {
         childImageSharp {
           fluid {
@@ -63,7 +66,9 @@ export default () => {
       />
       <div className="hero-title">
         <h2 className="cinzel hero-title--top">Dharmic Astrology</h2>
-        <h3 className="italianno hero-title--bottom">Astrology that upholds our Evolution</h3>
+        <h3 className="italianno hero-title--bottom">
+          {data.strapiMainPageSubtitle.content}
+        </h3>
       </div>
     </div>
   );

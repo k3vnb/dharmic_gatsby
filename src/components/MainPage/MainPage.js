@@ -7,10 +7,8 @@ import './MainPage.css';
 export default () => {
   const data = useStaticQuery(graphql`
     query {
-      allStrapiMainPageDescription {
-        nodes {
-          content
-        }
+      strapiMainPageDescription {
+        content
       }
     }
   `);
@@ -19,7 +17,7 @@ export default () => {
     <div className="main-page-description">
       <h3 className="cinzel main-page__title">About</h3>
       <ReactMarkdown
-        source={data.allStrapiMainPageDescription.nodes[0].content}
+        source={data.strapiMainPageDescription.content}
       />
       <PackageItemList />
     </div>

@@ -1,15 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-// import Image from '../components/image';
 import MainPage from '../components/MainPage/MainPage';
 import ImageHero from '../components/ImageHero/ImageHero';
 import SEO from '../components/seo';
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="Dharmic Astrology" />
     <ImageHero />
     <MainPage />
 

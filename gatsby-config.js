@@ -24,7 +24,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/icons8-lotus-48.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -33,7 +33,7 @@ module.exports = {
           apiURL: process.env.API_URL || `http://localhost:1337`,
           queryLimit: 10000,
           contentTypes: [`article`, `package-item`],
-          singleTypes: [`main-page-description`],
+          singleTypes: [`main-page-description`, `main-page-subtitle`],
       }
     },
     {
