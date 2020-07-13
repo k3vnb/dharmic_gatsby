@@ -13,14 +13,14 @@ const IndexPage = ({ data }) => (
     <ImageHero />
     <MainPage />
 
-    {data.allStrapiArticle.nodes.map(article => (
+    {/* {data.allStrapiArticle.nodes.map(article => (
       <Link key={article.id} to={`articles/${article.id}`}>
         <div>
           <h2>{article.title}</h2>
           <p>{article.content}</p>
         </div>
       </Link>
-    ))}
+    ))} */}
   </Layout>
 );
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import ReactMarkdown from 'react-markdown';
+import PackageItemList from './PackageItemList';
 import './MainPage.css';
 
 export default () => {
@@ -29,6 +30,7 @@ export default () => {
       <ReactMarkdown
         source={data.allStrapiMainPageDescription.nodes[0].content}
       />
+      <PackageItemList />
     </div>
   );
 };

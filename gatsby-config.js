@@ -32,7 +32,7 @@ module.exports = {
       options: {
           apiURL: process.env.API_URL || `http://localhost:1337`,
           queryLimit: 10000,
-          contentTypes: [`article`],
+          contentTypes: [`article`, `package-item`],
           singleTypes: [`main-page-description`],
       }
     },
