@@ -2,6 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import ReactMarkdown from 'react-markdown';
 import PackageItemList from './PackageItemList';
+import VideoList from '../VideoList/VideoList';
 import './MainPage.css';
 
 export default () => {
@@ -20,6 +21,7 @@ export default () => {
         source={data.strapiMainPageDescription.content}
       />
       <PackageItemList />
+      <VideoList />
     </div>
   );
 };
