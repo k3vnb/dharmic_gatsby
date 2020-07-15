@@ -13,9 +13,10 @@ export default () => {
           title
           description
           id
+          strapiId
         }
       }
-      beachSunset: file(relativePath: { eq: "beach-sunset.jpg" }) {
+      dandelion: file(relativePath: { eq: "andreas-haslinger-dandelion.jpg" }) {
         childImageSharp {
           fluid {
             base64
@@ -50,12 +51,12 @@ export default () => {
       }
     }
   `);
-  const images = [data.beachSunset, data.sunTree, data.water]
+  const images = [data.dandelion, data.sunTree, data.water]
   return (
     <section className="main-page__section">
       <h3 className="cinzel main-page__title">Services</h3>
       <div className="main-page__package-item-list">
-        {data.allStrapiPackageItem.nodes.map((item, index) => (
+        {data.allStrapiPackageItem.nodes.sort((a, b) => a.strapiId - b.strapiId).map((item, index) => (
           <PackageItem key={item.id} itemDetails={item} image={images[index].childImageSharp.fluid} />
         ))}
       </div>
