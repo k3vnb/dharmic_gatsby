@@ -1,4 +1,6 @@
 .video-container {
+  margin-top: 5%;
+  margin-bottom: 20%;
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
@@ -10,4 +12,16 @@
   left: -2%;
   width: 100%;
   height: 100%;
+}
+
+@media screen and (max-width: 400px) {
+  .video-container {
+    margin-bottom: 35%;
+  }
+}
+ 
+@media screen and (max-width: 900px) {
+  .video-iframe {
+    left: 0;
+  }
 }
