@@ -2,7 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import ReactMarkdown from 'react-markdown';
 import PackageItemList from './PackageItemList';
-import VideoList from '../VideoList/VideoList';
+import FeaturedVideoList from '../FeaturedVideoList/FeaturedVideoList';
 import './MainPage.css';
 
 export default () => {
@@ -16,12 +16,12 @@ export default () => {
 
   return (
     <div className="main-page-description">
-      <h3 className="cinzel main-page__title">About</h3>
-      <ReactMarkdown
-        source={data.strapiMainPageDescription.content}
-      />
+      <section className="main-page__section">
+        <h3 className="cinzel main-page__title">About</h3>
+        <ReactMarkdown source={data.strapiMainPageDescription.content} />
+      </section>
       <PackageItemList />
-      <VideoList />
+      <FeaturedVideoList />
     </div>
   );
 };

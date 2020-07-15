@@ -1,5 +1,5 @@
 import React from 'react';
-import './VideoList.css';
+import './FeaturedVideoList.css';
 
 export default ({ videoSrcUrl, videoTitle }) => {
   return (

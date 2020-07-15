@@ -1,12 +1,12 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Video from './Video';
-import './VideoList.css';
+import FeaturedVideo from './FeaturedVideo';
+import './FeaturedVideoList.css';
 
 export default () => {
-  const { allStrapiVideos } = useStaticQuery(graphql`
+  const { allStrapiFeaturedVideo } = useStaticQuery(graphql`
     query {
-      allStrapiVideos {
+      allStrapiFeaturedVideo {
         nodes {
           id
           title
@@ -17,10 +17,10 @@ export default () => {
     }
   `)
   return (
-    <section className="video-container">
+    <section className="video-container main-page__section">
       <h3 className="cinzel main-page__title">Further Resources</h3>
-      { allStrapiVideos.nodes.map(video => (
-        <Video
+      { allStrapiFeaturedVideo.nodes.map(video => (
+        <FeaturedVideo
          key={video.id}
          videoSrcUrl={video.videoURL}
          title={video.title}

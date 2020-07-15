@@ -52,7 +52,7 @@ export default () => {
   `);
   const images = [data.beachSunset, data.sunTree, data.water]
   return (
-    <section>
+    <section className="main-page__section">
       <h3 className="cinzel main-page__title">Services</h3>
       <div className="main-page__package-item-list">
         {data.allStrapiPackageItem.nodes.map((item, index) => (
