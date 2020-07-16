@@ -14,9 +14,18 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
           content
         }
       }
+      allStrapiPackageItem {
+        nodes {
+          strapiId
+          price
+          title
+          description
+        }
+      }
     }
   `).then(result => {
     const allArticles = result.data.allStrapiArticle.nodes;
+    const allPackageItems = result.data.allStrapiPackageItem.nodes;
     allArticles.forEach(({ id, title, content }) => {
       createPage({
         path: `/articles/${id}`,
@@ -25,6 +34,19 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
           id,
           title,
           content
+        }
+        ,
+      })
+    })
+    allPackageItems.forEach(({ strapiId, title, description, price }) => {
+      createPage({
+        path: `/package/${strapiId}`,
+        component: require.resolve('./src/templates/package'),
+        context: {
+          strapiId,
+          title,
+          description,
+          price
         }
         ,
       })
