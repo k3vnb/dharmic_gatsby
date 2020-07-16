@@ -1,9 +1,9 @@
 .package-item-page {
   margin-top: 40px;
-  display: flex;
+  /* display: flex; */
 }
 .package-item-page__main-content {
-  width: 80%;
+  width: 100%;
 }
 .package-item-page__title {
   display: flex;
@@ -27,8 +27,8 @@
     width: 100%;
   }
 }
-@media screen and (max-width: 550px) {
+/* @media screen and (max-width: 550px) {
   .package-item-page {
     flex-direction: column;
   }
-}
+} */
