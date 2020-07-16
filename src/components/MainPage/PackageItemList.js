@@ -27,7 +27,7 @@ export default () => {
           }
         }
       }
-      water: file(relativePath: { eq: "beach-dawn-dusk.jpg" }) {
+      meditation: file(relativePath: { eq: "meditation.jpg" }) {
         childImageSharp {
           fluid {
             base64
@@ -51,7 +51,7 @@ export default () => {
       }
     }
   `);
-  const images = [data.dandelion, data.sunTree, data.water]
+  const images = [data.dandelion, data.sunTree, data.meditation]
   return (
     <section className="main-page__section">
       <h3 className="cinzel main-page__title">Services</h3>
