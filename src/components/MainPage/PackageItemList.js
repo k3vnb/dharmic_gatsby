@@ -14,51 +14,36 @@ export default () => {
           description
           id
           strapiId
-        }
-      }
-      dandelion: file(relativePath: { eq: "andreas-haslinger-dandelion.jpg" }) {
-        childImageSharp {
-          fluid {
-            base64
-            aspectRatio
-            sizes
-            src
-            srcSet
-          }
-        }
-      }
-      meditation: file(relativePath: { eq: "meditation.jpg" }) {
-        childImageSharp {
-          fluid {
-            base64
-            aspectRatio
-            sizes
-            src
-            srcSet
-          }
-        }
-      }
-      sunTree: file(relativePath: { eq: "sun-through-tree.jpg" }) {
-        childImageSharp {
-          fluid {
-            base64
-            aspectRatio
-            sizes
-            src
-            srcSet
+          picture {
+            childImageSharp {
+              fluid {
+                aspectRatio
+                base64
+                sizes
+                src
+                srcSet
+                tracedSVG
+              }
+            }
           }
         }
       }
     }
   `);
-  const images = [data.dandelion, data.sunTree, data.meditation]
+  
   return (
     <section className="main-page__section">
       <h3 className="cinzel main-page__title">Services</h3>
       <div className="main-page__package-item-list">
-        {data.allStrapiPackageItem.nodes.sort((a, b) => a.strapiId - b.strapiId).map((item, index) => (
-          <PackageItem key={item.id} itemDetails={item} image={images[index].childImageSharp.fluid} />
-        ))}
+        {data.allStrapiPackageItem.nodes
+          .sort((a, b) => a.strapiId - b.strapiId)
+          .map((item) => (
+            <PackageItem
+              key={item.id}
+              itemDetails={item}
+              strapiId={item.strapiId}
+            />
+          ))}
       </div>
     </section>
   );

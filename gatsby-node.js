@@ -20,6 +20,18 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
           price
           title
           description
+          picture {
+            childImageSharp {
+              fluid {
+                aspectRatio
+                base64
+                sizes
+                src
+                srcSet
+                tracedSVG
+              }
+            }
+          }
         }
       }
     }
@@ -38,7 +50,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
         ,
       })
     })
-    allPackageItems.forEach(({ strapiId, title, description, price }) => {
+    allPackageItems.forEach(({ strapiId, title, description, price, picture }) => {
       createPage({
         path: `/package/${strapiId}`,
         component: require.resolve('./src/templates/package'),
@@ -46,7 +58,8 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
           strapiId,
           title,
           description,
-          price
+          price,
+          picture
         }
         ,
       })
