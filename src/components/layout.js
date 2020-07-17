@@ -26,15 +26,25 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-          <a target="_blank" href="https://icons8.com/icons/set/lotus">Lotus icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-        </footer>
-      </div>
+
+      <main>{children}</main>
+
+      <footer>
+        © {new Date().getFullYear()}, Built with
+        {` `}
+        <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://icons8.com/icons/set/lotus"
+        >
+          Lotus icon
+        </a>{' '}
+        icon by{' '}
+        <a target="_blank" rel="noreferrer" href="https://icons8.com">
+          Icons8
+        </a>
+      </footer>
     </>
   );
 };

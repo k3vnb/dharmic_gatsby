@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import MainPage from '../components/MainPage/MainPage';
@@ -11,15 +11,6 @@ const IndexPage = ({ data }) => (
     <SEO title="Dharmic Astrology" />
     <ImageHero />
     <MainPage />
-
-    {/* {data.allStrapiArticle.nodes.map(article => (
-      <Link key={article.id} to={`articles/${article.id}`}>
-        <div>
-          <h2>{article.title}</h2>
-          <p>{article.content}</p>
-        </div>
-      </Link>
-    ))} */}
   </Layout>
 );
 
