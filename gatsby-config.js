@@ -47,6 +47,21 @@ module.exports = {
       options: {
         trackingId: 'UA-172427996-1',
       },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Cinzel Decorative`,
+            variants: [`700`],
+          },
+          {
+            family: `Italianno`,
+            variants: [`400`]
+          },
+        ],
+      },
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
