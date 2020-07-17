@@ -1,9 +1,17 @@
 import React from 'react';
 
 export default () => {
-  console.log('form');
+  console.log('contact form loaded');
   return (
-    <form method="post" action="#" style={{ display: 'flex', flexDirection: 'column' }}>
+    <form
+      method="post"
+      netlify-honeypot="bot-field"
+      data-netlify="true"
+      name="contact"
+      style={{ display: 'flex', flexDirection: 'column', marginTop: 50 }}
+    >
+      <input type="hidden" name="bot-field" />
+      <input type="hidden" name="form-name" value="contact" />
       <label>
         Name
         <input type="text" name="name" id="name" />
