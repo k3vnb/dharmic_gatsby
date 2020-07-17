@@ -5,11 +5,13 @@ export default ({ videoSrcUrl, videoTitle }) => {
   const [showVideo, setShowVideo] = useState(false);
   // video is loaded asyncronously to improve performance metrics
   useEffect(() => {
-    const onLoad = () => {
-      setShowVideo(true);
-    };
-    window.addEventListener('load', onLoad());
-    return () => window.removeEventListener('load', onLoad);
+    const onLoad = () => !showVideo && setShowVideo(true);
+    if (document.readyState === 'complete') {
+      onLoad();
+    } else {
+      document.addEventListener('load', onLoad);
+      return () => document.removeEventListener('load', onLoad);
+    }
   }, []);
   return (
     <div className="video-container">
