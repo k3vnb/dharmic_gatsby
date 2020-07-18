@@ -40,7 +40,7 @@ const Header = ({ siteTitle }) => {
       </nav>
       <button
         className="burger-menu"
-        arialabel="Toggle Navigation Menu"
+        aria-label="Toggle Navigation Menu"
         type="button"
         onClick={toggleFlyout}
       >
