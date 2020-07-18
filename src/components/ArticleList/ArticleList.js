@@ -14,12 +14,11 @@ export default () => {
       }
     }
   `);
-  console.log(data.allStrapiArticle);
   return (
     <section className="article-list-container__page">
       <h2>Dharmic Astrology Articles</h2>
       {data.allStrapiArticle.nodes.map(article => (
-        <Link key={article.strapiId} to={`articles/${article.strapiId}`}>
+        <Link key={article.strapiId} to={`${article.strapiId}`}>
           <div>
             <h2>{article.title}</h2>
           </div>
