@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default ({ location }) => {
-  const fillColor = location.pathname === '/' ? '#fcbe4a' : '#ffffff';
+  const fillColor = location && location.pathname === '/' ? '#fcbe4a' : '#ffffff';
   console.log(fillColor)
   return (
   <svg
