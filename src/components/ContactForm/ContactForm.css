@@ -1,0 +1,25 @@
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+}
+.contact-form__btn {
+  margin-top: 5%;
+  width: 45%;
+  border-radius: 8px;
+  padding: 2%;
+}
+.contact-form__btn:hover {
+  cursor: pointer;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.178), 0px 3px 6px rgba(0, 0, 0, 0.288);
+}
+.contact-form__btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+.contact-form__btn--clear {
+  border: 1px solid grey;
+}
+.contact-form__btn--submit {
+  border: 1px solid green;
+  background-color: lightgreen;
+}

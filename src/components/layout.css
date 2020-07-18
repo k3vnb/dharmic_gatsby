@@ -627,3 +627,8 @@ pre tt:after {
 .italianno {
   font-family: 'italianno', cursive;
 }
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
