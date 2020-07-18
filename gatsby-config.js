@@ -3,6 +3,7 @@ module.exports = {
     title: `Dharmic Astrology`,
     description: `Dharmic Astrology research, readings, and collections`,
     author: `pdxwebdev.io`,
+    siteUrl: `https://www.example.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
