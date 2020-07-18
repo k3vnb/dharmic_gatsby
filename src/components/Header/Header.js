@@ -6,7 +6,8 @@ import BurgerMenu from './BurgerMenu';
 import FlyoutMenu from './FlyoutMenu';
 import './Header.css';
 
-const Header = ({ siteTitle }) => {
+const Header = ({ siteTitle, location }) => {
+  console.log({location})
   const [showFlyout, setShowFlyout] = useState(false);
   const toggleFlyout = () => setShowFlyout(!showFlyout);
 
@@ -15,7 +16,13 @@ const Header = ({ siteTitle }) => {
     { name: 'Blog', path: '/articles' },
   ].map(({ name, path }) => (
     <li key={name}>
-      <AniLink fade duration={0.25} to={path} className="header__nav-links">
+      <AniLink
+        activeClassName="active"
+        fade
+        duration={0.25}
+        to={path}
+        className="header__nav-links"
+      >
         {name}
       </AniLink>
     </li>
@@ -37,7 +44,7 @@ const Header = ({ siteTitle }) => {
           {siteTitle}
         </AniLink>
       </h1>
-      <nav className="expanded-nav">
+      <nav className="expanded-nav nav">
         <ul className="header__nav-list ul-reset">{navLinks}</ul>
       </nav>
       <button
@@ -49,7 +56,7 @@ const Header = ({ siteTitle }) => {
         <BurgerMenu />
       </button>
       {showFlyout && (
-        <nav className="collapsed-nav">
+        <nav className="collapsed-nav nav">
           <FlyoutMenu>
             <ul className="ul-reset">{navLinks}</ul>
           </FlyoutMenu>

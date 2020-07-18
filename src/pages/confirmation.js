@@ -3,8 +3,8 @@ import Layout from '../components/layout';
 import ConfirmationMessage from '../components/ContactForm/ConfirmationMessage';
 import SEO from '../components/seo';
 
-const ConfirmationPage = () => (
-  <Layout>
+const ConfirmationPage = ({ location }) => (
+  <Layout location={location}>
     <SEO title="Confirmation Message" />
     <ConfirmationMessage />
   </Layout>

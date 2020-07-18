@@ -3,8 +3,8 @@ import Layout from '../components/layout';
 import ContactForm from '../components/ContactForm/ContactForm';
 import SEO from '../components/seo';
 
-const ContactPage = ({ data }) => (
-  <Layout>
+const ContactPage = ({ location }) => (
+  <Layout location={location} >
     <SEO title="Contact Us" />
     <ContactForm />
   </Layout>
