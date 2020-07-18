@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import Logo from './Logo';
 import BurgerMenu from './BurgerMenu';
+import HomeIcon from './HomeIcon';
 import FlyoutMenu from './FlyoutMenu';
 import './Header.css';
 
@@ -12,6 +13,7 @@ const Header = ({ siteTitle, location }) => {
   const toggleFlyout = () => setShowFlyout(!showFlyout);
 
   const navLinks = [
+    {  name: 'Home', path: '/' },
     { name: 'Contact', path: '/contact' },
     { name: 'Blog', path: '/articles' },
   ].map(({ name, path }) => (
@@ -23,7 +25,7 @@ const Header = ({ siteTitle, location }) => {
         to={path}
         className="header__nav-links"
       >
-        {name}
+        {name === 'Home' ? <HomeIcon location={location} /> : name}
       </AniLink>
     </li>
   ));
