@@ -6,7 +6,6 @@ export default ({ videoSrcUrl, videoTitle }) => {
   // video is loaded asyncronously to improve performance metrics
   useEffect(() => {
     const onLoad = () => !showVideo && setShowVideo(true);
-    console.log('hi');
     document.addEventListener('scroll', onLoad);
     return () => document.removeEventListener('scroll', onLoad);
   }, [showVideo]);

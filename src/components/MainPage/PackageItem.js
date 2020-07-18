@@ -4,7 +4,6 @@ import Img from 'gatsby-image';
 import './MainPage.css';
 
 const PackageItem = ({ itemDetails: { title, description, price, strapiId, picture }, patternImage }) => {
-  console.log(patternImage)
   return (
     <article className="package-item__card">
       <Img

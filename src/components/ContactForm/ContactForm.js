@@ -14,25 +14,27 @@ export default () => {
         name="contact"
         style={{ display: 'flex', flexDirection: 'column', marginTop: 50 }}
       >
-        <h2>Contact Us</h2>
-        <span>
-          We are happy to hear from you with any questions or comments.
-        </span>
+        <div className="contact-form__header">
+          <h2>Contact Us</h2>
+          <span>
+            We are happy to hear from you with any questions or comments.
+          </span>
+        </div>
         <input type="hidden" name="bot-field" />
         <input type="hidden" name="form-name" value="contact" />
-        <label>
+        <label htmlFor="name">
           Name *
           <input type="text" name="name" id="name" required />
         </label>
-        <label>
+        <label htmlFor="email">
           Email *
           <input type="email" name="email" id="email" required />
         </label>
-        <label>
+        <label htmlFor="subject">
           Subject *
           <input type="text" name="subject" id="subject" required />
         </label>
-        <label>
+        <label htmlFor="message">
           Message *
           <textarea name="message" id="message" rows="5" required />
         </label>
