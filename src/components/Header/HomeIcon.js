@@ -2,7 +2,6 @@ import React from 'react';
 
 export default ({ location }) => {
   const fillColor = location && location.pathname === '/' ? '#fcbe4a' : '#ffffff';
-  console.log(fillColor)
   return (
   <svg
     xmlns="http://www.w3.org/2000/svg"
