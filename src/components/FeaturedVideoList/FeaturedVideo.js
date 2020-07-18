@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './FeaturedVideoList.css';
 
-export default ({ videoSrcUrl, videoTitle }) => {
+export default ({ videoSrcUrl, title }) => {
   const [showVideo, setShowVideo] = useState(false);
   // video is loaded asyncronously to improve performance metrics
   useEffect(() => {
@@ -15,7 +15,7 @@ export default ({ videoSrcUrl, videoTitle }) => {
         <iframe
           className="video-iframe"
           src={videoSrcUrl}
-          title={videoTitle}
+          title={title}
           allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
           frameBorder="0"
           webkitallowfullscreen="true"
