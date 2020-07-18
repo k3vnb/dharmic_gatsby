@@ -1,5 +1,5 @@
 import React from 'react';
-// import { graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import MainPage from '../components/MainPage/MainPage';
@@ -17,18 +17,18 @@ const IndexPage = ({ location }) => {
 
 export default IndexPage;
 
-// export const pageQuery = graphql`
-//   query MyQuery {
-//     allStrapiArticle {
-//       nodes {
-//         id
-//         title
-//         content
-//         updated_at
-//       }
-//     }
-//     strapiMainPageDescription {
-//       content
-//     }
-//   }
-// `;
+export const pageQuery = graphql`
+  query MyQuery {
+    allStrapiArticle {
+      nodes {
+        id
+        title
+        content
+        updated_at
+      }
+    }
+    strapiMainPageDescription {
+      content
+    }
+  }
+`;
