@@ -16,8 +16,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-html-attributes',
       options: {
-        lang: 'en'
-      }
+        lang: 'en',
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -36,11 +36,11 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-          apiURL: process.env.API_URL || `http://localhost:1337`,
-          queryLimit: 10000,
-          contentTypes: [`article`, `package-item`, `featured-video`],
-          singleTypes: [`main-page-description`, `main-page-subtitle`],
-      }
+        apiURL: process.env.API_URL || `http://localhost:1337`,
+        queryLimit: 10000,
+        contentTypes: [`article`, `package-item`, `featured-video`],
+        singleTypes: [`main-page-description`, `main-page-subtitle`],
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -58,11 +58,25 @@ module.exports = {
           },
           {
             family: `Italianno`,
-            variants: [`400`]
+            variants: [`400`],
           },
         ],
       },
-    }
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        createLinkInHead: true,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.dharmicastrology.com',
+        sitemap: 'https://www.dharmicastrology.com/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
