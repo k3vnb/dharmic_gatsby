@@ -1,8 +1,8 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import PackageItem from './PackageItem';
+import PackageItemCard from './PackageItemCard';
 // import ReactMarkdown from 'react-markdown';
-import './MainPage.css';
+import './PackageItemCardList.css';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -45,7 +45,7 @@ export default () => {
         {data.allStrapiPackageItem.nodes
           .sort((a, b) => a.strapiId - b.strapiId)
           .map(item => (
-            <PackageItem
+            <PackageItemCard
               key={item.id}
               itemDetails={item}
               strapiId={item.strapiId}

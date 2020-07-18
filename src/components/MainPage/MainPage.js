@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import ReactMarkdown from 'react-markdown';
-import PackageItemList from './PackageItemList';
+import PackageItemCardList from '../PackageItemCard/PackageItemCardList';
 import FeaturedVideoList from '../FeaturedVideoList/FeaturedVideoList';
 import './MainPage.css';
 
@@ -20,7 +20,7 @@ export default () => {
         <h3 className="cinzel main-page__title">About</h3>
         <ReactMarkdown source={data.strapiMainPageDescription.content} />
       </section>
-      <PackageItemList />
+      <PackageItemCardList />
       <FeaturedVideoList />
     </div>
   );

@@ -1,9 +1,9 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-import './MainPage.css';
+import './PackageItemCardList.css';
 
-const PackageItem = ({ itemDetails: { title, description, price, strapiId, picture }, patternImage }) => {
+const PackageItemCard = ({ itemDetails: { title, description, price, strapiId, picture }, patternImage }) => {
   return (
     <article className="package-item__card">
       <Img
@@ -24,4 +24,4 @@ const PackageItem = ({ itemDetails: { title, description, price, strapiId, pictu
   );
 };
 
-export default PackageItem;
+export default PackageItemCard;
