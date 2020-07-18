@@ -34,6 +34,7 @@ module.exports = {
         icon: `src/images/icons8-lotus-48.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-transition-link`,
     {
       resolve: `gatsby-source-strapi`,
       options: {

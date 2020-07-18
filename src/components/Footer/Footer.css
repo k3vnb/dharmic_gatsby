@@ -1,0 +1,8 @@
+.footer {
+  padding: 2%;
+  background-color: rgb(37, 35, 35);
+  color: white;
+  width: 100%;
+  min-height: 30px;
+  font-size: .7rem;
+}

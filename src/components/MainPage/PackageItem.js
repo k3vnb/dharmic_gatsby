@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import Img from 'gatsby-image';
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import './MainPage.css';
 
 const PackageItem = ({ itemDetails: { title, description, price, strapiId, picture }, patternImage }) => {
@@ -19,7 +19,7 @@ const PackageItem = ({ itemDetails: { title, description, price, strapiId, pictu
       />
       <h5 className="package-item__card-title" style={{ backgroundImage: `url(${patternImage})`, backgroundSize: '15%' }}>{title}</h5>
       <p className="package-item__card-description">{description}</p>
-      <Link to={`/package/${strapiId}`}><button className="package-item__button">Find out more...</button></Link>
+      <AniLink fade duration={0.25} to={`/package/${strapiId}`}><button className="package-item__button">Find out more...</button></AniLink>
     </article>
   );
 };

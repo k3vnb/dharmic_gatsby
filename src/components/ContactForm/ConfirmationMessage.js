@@ -1,6 +1,6 @@
 import React from 'react';
 import FormPageLayout from '../formPageLayout';
-import { Link } from 'gatsby';
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 export default () => {
   return (
@@ -10,11 +10,11 @@ export default () => {
           Thank you for reaching out! We have received your submission and we
           will reply shortly.
         </p>
-        <Link to="/">
+        <AniLink fade duration={0.25} to="/">
           <button type="button" className="link-to-home-btn">
             Return Home
           </button>
-        </Link>
+        </AniLink>
       </div>
     </FormPageLayout>
   );

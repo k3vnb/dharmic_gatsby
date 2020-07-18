@@ -1,4 +1,4 @@
-import { Link } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import Logo from './Logo';
@@ -8,16 +8,16 @@ import './Header.css';
 
 const Header = ({ siteTitle }) => {
   const [showFlyout, setShowFlyout] = useState(false);
-  const toggleFlyout = () => setShowFlyout(!showFlyout)
+  const toggleFlyout = () => setShowFlyout(!showFlyout);
 
   const navLinks = [
     { name: 'Contact', path: '/contact' },
     { name: 'Blog', path: '/articles' },
   ].map(({ name, path }) => (
     <li key={name}>
-      <Link to={path} className="header__nav-links">
+      <AniLink fade duration={0.25} to={path} className="header__nav-links">
         {name}
-      </Link>
+      </AniLink>
     </li>
   ));
 
@@ -25,7 +25,9 @@ const Header = ({ siteTitle }) => {
     <header className="header">
       <h1 className="cinzel header__title">
         <Logo />
-        <Link
+        <AniLink
+          fade
+          duration={0.3}
           to="/"
           style={{
             color: `white`,
@@ -33,7 +35,7 @@ const Header = ({ siteTitle }) => {
           }}
         >
           {siteTitle}
-        </Link>
+        </AniLink>
       </h1>
       <nav className="expanded-nav">
         <ul className="header__nav-list ul-reset">{navLinks}</ul>
