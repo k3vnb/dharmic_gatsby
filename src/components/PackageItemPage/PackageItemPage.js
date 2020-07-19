@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { toggleCart } from '../../state/app';
 import ReactMarkdown from 'react-markdown';
 import Img from 'gatsby-image';
 import './PackageItemPage.css';
+import state from '../../state';
 
-const PackageItemPage = ({ title, description, price, picture }) => {
+const PackageItemPage = ({ title, description, price, picture, toggleCart, isCartShown }) => {
   return (
     <section className="page package-item-page">
       <Img
@@ -21,10 +24,20 @@ const PackageItemPage = ({ title, description, price, picture }) => {
         <div className="package-item-page__description">
           <ReactMarkdown source={description} />
           <p>Price: ${price}</p>
+          <button type="button" onClick={() => toggleCart(isCartShown)}>Add to Cart</button>
+          <p className="package-item-page__subtext">*ask about special sliding scale rates for those that have restricted income. </p>
         </div>
       </article>
     </section>
   );
 };
 
-export default PackageItemPage;
+const mapStateToProps = ({ app }) => ({
+  isCartShown: app.isCartShown,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  toggleCart: (prevState) => dispatch(toggleCart(prevState)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PackageItemPage);

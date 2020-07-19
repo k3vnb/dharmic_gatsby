@@ -22,6 +22,10 @@
   padding: 10%;
 }
 
+.package-item-page__subtext {
+  font-size: .8rem;
+  font-style: italic;
+}
 @media screen and (max-width: 750px) {
   .package-item-page__main-content {
     width: 100%;
