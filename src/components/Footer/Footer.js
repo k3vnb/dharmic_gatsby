@@ -2,7 +2,7 @@ import React from 'react';
 import './Footer.css';
 
 export default () => {
-  console.log('footer');
+  // console.log('footer');
   return (
     <footer className="footer">
       © {new Date().getFullYear()} dharmicastrology.com

@@ -8,7 +8,6 @@ import FlyoutMenu from './FlyoutMenu';
 import './Header.css';
 
 const Header = ({ siteTitle, location }) => {
-  console.log({location})
   const [showFlyout, setShowFlyout] = useState(false);
   const toggleFlyout = () => setShowFlyout(!showFlyout);
 

@@ -1,4 +1,5 @@
 import React from 'react';
+
 // import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
@@ -8,12 +9,13 @@ import SEO from '../components/seo';
 
 const IndexPage = ({ location }) => {
   return (
-  <Layout location={location}>
-    <SEO title="Dharmic Astrology" />
-    <ImageHero />
-    <MainPage />
-  </Layout>
-)};
+    <Layout location={location}>
+      <SEO title="Dharmic Astrology" />
+      <ImageHero />
+      <MainPage />
+    </Layout>
+  );
+};
 
 export default IndexPage;
 
