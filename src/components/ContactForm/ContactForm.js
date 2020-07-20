@@ -42,11 +42,11 @@ export default () => {
           <input
             type="reset"
             value="Clear"
-            className="contact-form__btn contact-form__btn--clear"
+            className="btn contact-form__btn contact-form__btn--clear"
           />
           <button
             type="submit"
-            className="contact-form__btn contact-form__btn--submit"
+            className="btn contact-form__btn contact-form__btn--submit"
           >
             Send
           </button>

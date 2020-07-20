@@ -19,7 +19,7 @@ const PackageItemCard = ({ itemDetails: { title, description, price, strapiId, p
       />
       <h5 className="package-item__card-title" style={{ backgroundImage: `url(${patternImage})`, backgroundSize: '15%' }}>{title}</h5>
       <p className="package-item__card-description">{description}</p>
-      <AniLink fade duration={0.25} to={`/package/${strapiId}`}><button className="package-item__button">Find out more...</button></AniLink>
+      <AniLink fade duration={0.25} to={`/package/${strapiId}`}><button className="btn package-item__button">Find out more...</button></AniLink>
     </article>
   );
 };

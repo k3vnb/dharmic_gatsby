@@ -1,9 +1,21 @@
 .package-item-page {
   margin-top: 40px;
-  /* display: flex; */
 }
-.package-item-page__main-content {
-  width: 100%;
+.package-item-page__main-content--outer {
+  position: absolute;
+  top: 2%;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: transparent;
+}
+.package-item-page__main-content--inner {
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.849);
+  min-height: 50vh;
+  width: 80vw;
+  border-radius: 16px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 .package-item-page__title {
   display: flex;
@@ -17,25 +29,42 @@
   background-color: #79283b;
   min-height: 4em;
   margin-bottom: 0;
+  border-radius: 16px 16px 0 0;
 }
 .package-item-page__description {
   padding: 10%;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
-
+.package-item-page__price {
+  margin: 0;
+  font-size: 0.9rem;
+}
 .package-item-page__subtext {
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-style: italic;
+  margin: 0;
 }
 @media screen and (max-width: 750px) {
   .package-item-page__main-content {
     width: 100%;
   }
 }
-/* @media screen and (max-width: 550px) {
-  .package-item-page {
-    flex-direction: column;
-  }
-} */
+.package-item-page__btn--add-to-cart {
+  border: 1px solid green;
+  background-color: lightgreen;
+  border-radius: 8px;
+  padding: 1%;
+  margin-top: 8%;
+}
+.package-item-page__btn--add-to-cart:hover {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.178), 0px 3px 6px rgba(0, 0, 0, 0.288);
+}
+
+/* modal */
+
 .package-item__modal--outer {
   position: fixed;
   top: 0;
@@ -43,12 +72,40 @@
   z-index: 75;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.514);
+  background-color: rgba(0, 0, 0, 0.575);
 }
 .package-item__modal--inner {
-  height: 50vh;
-  width: 50vw;
-  background-color: white;
+  min-height: 30vh;
+  min-width: 30vw;
+  max-width: 84vw;
+  background-color: #e65d27f7;
+  color: white;
+  font-weight: bold;
+  padding: 3% 4%;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.package-item__modal--inner > * {
+  display: block;
+}
+.package-item__modal-close-btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  align-self: flex-start;
+}
+.package-item__modal-redirect-btn {
   padding: 3%;
   border-radius: 12px;
+  width: 33vw;
+  margin-left: auto;
+  border: 1px solid rgb(87, 87, 87);
+  float: right;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.package-item__modal-redirect-btn:hover {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.178), 0px 3px 6px rgba(0, 0, 0, 0.288);
 }

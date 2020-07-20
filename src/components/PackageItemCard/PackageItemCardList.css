@@ -44,7 +44,6 @@
 }
 
 .package-item__button:hover {
-  cursor: pointer;
   background-color: #9e374f;
   border-color: transparent;
   border-radius: 3px;

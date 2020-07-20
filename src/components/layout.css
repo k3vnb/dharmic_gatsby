@@ -635,3 +635,6 @@ pre tt:after {
   justify-content: center;
   align-items: center;
 }
+.btn:hover {
+  cursor: pointer;
+}
