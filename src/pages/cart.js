@@ -3,11 +3,11 @@ import Layout from '../components/layout';
 import CartContainer from '../components/Cart/CartContainer';
 import SEO from '../components/seo';
 
-const ConfirmationPage = ({ location }) => (
+const CartPage = ({ location }) => (
   <Layout location={location}>
     <SEO title="Cart" />
     <CartContainer />
   </Layout>
 );
 
-export default ConfirmationPage;
+export default CartPage;

@@ -1,0 +1,12 @@
+.cart-container {
+  min-width: 70vw;
+}
+.cart-header {
+  text-align: center;
+}
+.empty-cart-message {
+  font-style: italic;
+}
+.cart__item-list {
+  padding: 1%;
+}

@@ -38,7 +38,7 @@ const PackageItemPage = ({
           <ReactMarkdown source={description} />
           <p>Price: ${price}</p>
           <button type="button" onClick={handleAddToCartClick}>
-            Add to CartSS
+            Add to Cart
           </button>
           <p className="package-item-page__subtext">
             *ask about special sliding scale rates for those that have
