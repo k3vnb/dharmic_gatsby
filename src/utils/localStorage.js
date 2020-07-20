@@ -1,17 +1,15 @@
-export const setCart = cart => {
-  localStorage.setItem('cart' === JSON.stringify(cart));
+export const setLocalStorageApp = app => {
+  localStorage.setItem('app', JSON.stringify(app));
 }
 
-export const getCart = () => {
+export const getApp = () => {
   try {
-    const cart = JSON.parse(localStorage.getItem('cart'));
-    return cart;
+    const app = JSON.parse(localStorage.getItem('app'));
+    return app;
   } catch (err) {
-    return [];
+    if (process.env === 'development') {
+      console.error(err);
+    }
+    return null;
   }
-}
-
-export const addToCart = product => {
-  const cart = [...getCart()];
-  cart.push(product);
 }

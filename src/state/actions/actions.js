@@ -1,5 +1,3 @@
-
-
 import * as types from '../constants/types'
 
 export const toggleModal = prevState => ({ type: types.TOGGLE_MODAL, payload: !prevState });

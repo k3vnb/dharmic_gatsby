@@ -5,8 +5,9 @@ import {
   REMOVE_FROM_CART,
   CLEAR_CART,
 } from './constants/types';
+import { setLocalStorageApp } from '../utils/localStorage';
 
-const initialState = {
+export const initialState = {
   isCartShown: false,
   cart: [],
 };
@@ -36,6 +37,7 @@ export default (state = initialState, action) => {
           currentCartItem,
         ];
       }
+      setLocalStorageApp({ ...state, cart: newCartWithAddition });
       return { ...state, cart: newCartWithAddition };
     case DECREASE_FROM_CART:
       return state;
@@ -43,8 +45,10 @@ export default (state = initialState, action) => {
       const newCartWithRemove = state.cart.filter(
         item => item.id !== payload.id
       );
+      setLocalStorageApp({ ...state, cart: newCartWithRemove });
       return { ...state, cart: newCartWithRemove };
     case CLEAR_CART:
+      setLocalStorageApp({ ...state, cart: [] });
       return { ...state, cart: [] };
     default:
       return state;
