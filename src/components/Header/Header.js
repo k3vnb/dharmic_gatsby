@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Logo from './Logo';
 import BurgerMenu from './BurgerMenu';
 import HomeIcon from './HomeIcon';
+import ShoppingCartIcon from './ShoppingCartIcon';
 import FlyoutMenu from './FlyoutMenu';
 import './Header.css';
 
@@ -12,10 +13,11 @@ const Header = ({ siteTitle, location }) => {
   const toggleFlyout = () => setShowFlyout(!showFlyout);
 
   const navLinks = [
-    {  name: 'Home', path: '/' },
-    { name: 'Contact', path: '/contact' },
-    { name: 'Blog', path: '/articles' },
-  ].map(({ name, path }) => (
+    { icon: <HomeIcon location={location} />, name: 'Home', path: '/' },
+    { icon: null, name: 'Contact', path: '/contact' },
+    { icon: null, name: 'Blog', path: '/articles' },
+    { icon: <ShoppingCartIcon location={location} />, name: 'Home', path: '/cart' },
+  ].map(({ icon, name, path }) => (
     <li key={name}>
       <AniLink
         activeClassName="active"
@@ -24,7 +26,7 @@ const Header = ({ siteTitle, location }) => {
         to={path}
         className="header__nav-links"
       >
-        {name === 'Home' ? <HomeIcon location={location} /> : name}
+        {icon ? icon : name}
       </AniLink>
     </li>
   ));
