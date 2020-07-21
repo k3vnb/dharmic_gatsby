@@ -59,7 +59,7 @@ module.exports = {
             variants: [`700`],
           },
           {
-            family: `Italianno`,
+            family: `Tangerine`,
             variants: [`400`],
           },
         ],
