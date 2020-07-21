@@ -10,3 +10,9 @@
 .cart__item-list {
   padding: 1%;
 }
+.cart-item-control-btn {
+  background-color: transparent;
+  border: none;
+  color: rgb(61, 61, 245);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

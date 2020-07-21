@@ -1,6 +1,7 @@
 import {
   TOGGLE_MODAL,
   ADD_TO_CART,
+  INCREASE_IN_CART,
   DECREASE_FROM_CART,
   REMOVE_FROM_CART,
   CLEAR_CART,
@@ -12,6 +13,27 @@ export const initialState = {
   cart: [],
 };
 
+const getCurrentCartItem = (cart, id) =>
+  cart.find(cartItem => cartItem.id === id);
+
+const getNewCart = (cart, currentCartItem) => [
+  ...cart.filter(({ id }) => id !== currentCartItem.id),
+  currentCartItem,
+];
+
+const decreaseCartItemQuantity = (cart, currentCartItem) => {
+  if (currentCartItem.quantity === 0) {
+    return cart;
+  }
+  currentCartItem.quantity = currentCartItem.quantity -= 1;
+  return getNewCart(cart, currentCartItem);
+};
+
+const increaseCartItemQuantity = (cart, currentCartItem) => {
+  currentCartItem.quantity = currentCartItem.quantity += 1;
+  return getNewCart(cart, currentCartItem);
+};
+
 export default (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
@@ -19,7 +41,7 @@ export default (state = initialState, action) => {
       return { ...state, isModalShown: payload };
     case ADD_TO_CART:
       let newCartWithAddition;
-      const currentCartItem = state.cart.find(({ id }) => id === payload.id);
+      let currentCartItem = getCurrentCartItem(state.cart, payload.id);
       if (!currentCartItem) {
         newCartWithAddition = [
           ...state.cart,
@@ -31,19 +53,33 @@ export default (state = initialState, action) => {
           },
         ];
       } else {
-        currentCartItem.quantity = currentCartItem.quantity += 1;
-        newCartWithAddition = [
-          ...state.cart.filter(({ id }) => id !== currentCartItem.id),
-          currentCartItem,
-        ];
+        newCartWithAddition = increaseCartItemQuantity(
+          state.cart,
+          currentCartItem
+        );
       }
       setLocalStorageApp({ ...state, cart: newCartWithAddition });
       return { ...state, cart: newCartWithAddition };
+    case INCREASE_IN_CART:
+      currentCartItem = getCurrentCartItem(state.cart, payload);
+      if (!currentCartItem) return state;
+      const newCartWithIncrease = increaseCartItemQuantity(
+        state.cart,
+        currentCartItem
+      );
+      return { ...state, cart: newCartWithIncrease };
     case DECREASE_FROM_CART:
-      return state;
+      currentCartItem = getCurrentCartItem(state.cart, payload);
+      if (!currentCartItem) return state;
+      const newCartWithDecrease = decreaseCartItemQuantity(
+        state.cart,
+        currentCartItem
+      );
+      setLocalStorageApp({ ...state, cart: newCartWithDecrease });
+      return { ...state, cart: newCartWithDecrease };
     case REMOVE_FROM_CART:
       const newCartWithRemove = state.cart.filter(
-        item => item.id !== payload.id
+        item => item.id !== payload
       );
       setLocalStorageApp({ ...state, cart: newCartWithRemove });
       return { ...state, cart: newCartWithRemove };

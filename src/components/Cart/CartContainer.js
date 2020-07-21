@@ -6,10 +6,15 @@ import FormPageLayout from '../formPageLayout';
 import './Cart.css';
 
 const CartContainer = ({ cart, clearCart }) => {
-  console.log(cart)
-  const cartItemList = cart.map(itemDetails => (
-    <CartItem key={itemDetails.id} itemDetails={itemDetails} />
-  ));
+  const cartPriceTotal = cart.reduce(
+    (accumulator, item) => item.quantity * item.price + accumulator,
+    0
+  );
+  const cartItemList = cart
+    .sort((a, b) => a.id - b.id)
+    .map(itemDetails => (
+      <CartItem key={itemDetails.id} itemDetails={itemDetails} />
+    ));
   return (
     <FormPageLayout>
       <div className="cart-container">
@@ -35,13 +40,12 @@ const CartContainer = ({ cart, clearCart }) => {
           </table>
         )}
         <hr />
-        <span>
-          Total: $
-          {cart.reduce((accumulator, item) => item.price + accumulator, 0)}
-        </span>
+        <span>Total: ${cartPriceTotal}</span>
         {!!cart.length && (
           <div className="cart__button-container">
-            <button className="cart__btn--clear" onClick={() => clearCart()}>Clear Cart</button>
+            <button className="cart__btn--clear" onClick={() => clearCart()}>
+              Clear Cart
+            </button>
             <button className="cart__btn--checkout">Checkout</button>
           </div>
         )}
@@ -55,7 +59,7 @@ const mapStateToProps = ({ app }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  clearCart: () => dispatch(clearCart())
+  clearCart: () => dispatch(clearCart()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartContainer);

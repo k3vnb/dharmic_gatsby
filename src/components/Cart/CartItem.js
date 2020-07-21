@@ -1,16 +1,22 @@
 import React from 'react';
+import CartItemControls from './CartItemControls';
 
 const CartItem = ({ itemDetails }) => {
-  const { price, quantity, details } = itemDetails;
+  const { price, quantity, details, id } = itemDetails;
+
   return (
-    // <div className="cart-item-container" style={{ display: 'flex', justifyContent: 'space-between' }}>
     <tr>
-      <td style={{ fontSize: '.7rem' }}><strong>{details.title}</strong></td>
+      <td className="cart-item-container" style={{ fontSize: '.7rem' }}>
+        <strong>{details.title}</strong>
+      </td>
       <td>${price}</td>
       <td>{quantity}</td>
-      <td><button>Buttons</button></td>
+      <td>
+        <CartItemControls
+          id={id}
+        />
+      </td>
     </tr>
-    // </div>
   );
 };
 
