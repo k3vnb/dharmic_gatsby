@@ -31,23 +31,39 @@ const CartContainer = ({ cart, clearCart }) => {
             <thead>
               <tr>
                 <th>Item</th>
-                <th>Cost (each)</th>
-                <th>Quantity</th>
-                <th>Add / Subtract</th>
+                <th>
+                  Cost <span className="table-header__subtext">(each)</span>
+                </th>
+                <th>Qty</th>
+                <th>Edit</th>
               </tr>
             </thead>
             <tbody>{cartItemList}</tbody>
           </table>
         )}
-        <hr />
-        <span>Total: ${cartPriceTotal}</span>
         {!!cart.length && (
-          <div className="cart__button-container">
-            <button className="cart__btn--clear" onClick={() => clearCart()}>
-              Clear Cart
-            </button>
-            <button className="cart__btn--checkout">Checkout</button>
-          </div>
+          <>
+            <p className="cart-total">
+              Total: ${cartPriceTotal}{' '}
+              <span className="cart-total__subtext">USD</span>
+            </p>
+            <div className="cart__btn-container">
+              <button
+                type="reset"
+                className="btn cart__btn cart__btn--clear"
+                onClick={() => clearCart()}
+              >
+                Clear Cart
+              </button>
+              <button
+                type="button"
+                aria-label="checkout"
+                className="btn cart__btn cart__btn--checkout"
+              >
+                Checkout
+              </button>
+            </div>
+          </>
         )}
       </div>
     </FormPageLayout>

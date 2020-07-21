@@ -7,18 +7,24 @@ const CartItemControls = ({ id, increaseInCart, decreaseFromCart, removeFromCart
     <>
       <button
         className="cart-item-control-btn cart-item-control-btn--increase"
+        type="button"
+        aria-label="increase item"
         onClick={() => increaseInCart(id)}
       >
         +
       </button>
       <button
         className="cart-item-control-btn cart-item-control-btn--decrease"
+        type="button"
+        aria-label="decrease item"
         onClick={() => decreaseFromCart(id)}
       >
         -
       </button>
       <button
         className="cart-item-control-btn cart-item-control-btn--remove"
+        type="button"
+        aria-label="remove item"
         onClick={() => removeFromCart(id)}
       >
         Remove
