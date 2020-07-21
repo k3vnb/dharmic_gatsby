@@ -1,7 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import PackageItemCard from './PackageItemCard';
-// import ReactMarkdown from 'react-markdown';
 import './PackageItemCardList.css';
 
 export default () => {
@@ -29,7 +28,6 @@ export default () => {
                 sizes
                 src
                 srcSet
-                tracedSVG
               }
             }
           }

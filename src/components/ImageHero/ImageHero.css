@@ -45,6 +45,12 @@
     padding-top: 2%;
     height: 75vh;
   }
+  .hero-title {
+    font-size: 3rem;
+  }
+  .hero-subtitle {
+    font-size: 2.5rem;
+  }
 }
 
 @media screen and (min-width: 1600px) {

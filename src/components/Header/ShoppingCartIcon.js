@@ -51,7 +51,7 @@ const ShoppingCartIcon = ({ cart, location }) => {
             />
             <text
               stroke="#000000"
-              xmlspace="preserve"
+              xmlSpace="preserve"
               textAnchor="middle"
               fontFamily="sans"
               fontSize={quantity < 10 ? "115" : "78"}
