@@ -10,13 +10,18 @@ import './Header.css';
 
 const Header = ({ siteTitle, location }) => {
   const [showFlyout, setShowFlyout] = useState(false);
+
   const toggleFlyout = () => setShowFlyout(!showFlyout);
 
   const navLinks = [
     { icon: <HomeIcon location={location} />, name: 'Home', path: '/' },
     { icon: null, name: 'Contact', path: '/contact' },
     { icon: null, name: 'Blog', path: '/articles' },
-    { icon: <ShoppingCartIcon location={location} />, name: 'Cart', path: '/cart' },
+    {
+      icon: <ShoppingCartIcon location={location} />,
+      name: 'Cart',
+      path: '/cart',
+    },
   ].map(({ icon, name, path }) => (
     <li key={name}>
       <AniLink
@@ -59,11 +64,9 @@ const Header = ({ siteTitle, location }) => {
         <BurgerMenu />
       </button>
       {showFlyout && (
-        <nav className="collapsed-nav nav">
-          <FlyoutMenu>
-            <ul className="ul-reset">{navLinks}</ul>
-          </FlyoutMenu>
-        </nav>
+        <FlyoutMenu setShowFlyout={setShowFlyout}>
+          <ul className="ul-reset">{navLinks}</ul>
+        </FlyoutMenu>
       )}
     </header>
   );
