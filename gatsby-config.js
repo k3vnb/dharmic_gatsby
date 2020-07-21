@@ -60,7 +60,7 @@ module.exports = {
           },
           {
             family: `Tangerine`,
-            variants: [`400`],
+            variants: [`700`],
           },
         ],
       },

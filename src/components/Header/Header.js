@@ -16,7 +16,7 @@ const Header = ({ siteTitle, location }) => {
     { icon: <HomeIcon location={location} />, name: 'Home', path: '/' },
     { icon: null, name: 'Contact', path: '/contact' },
     { icon: null, name: 'Blog', path: '/articles' },
-    { icon: <ShoppingCartIcon location={location} />, name: 'Home', path: '/cart' },
+    { icon: <ShoppingCartIcon location={location} />, name: 'Cart', path: '/cart' },
   ].map(({ icon, name, path }) => (
     <li key={name}>
       <AniLink

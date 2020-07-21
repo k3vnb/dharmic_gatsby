@@ -21,7 +21,7 @@
 .hero-subtitle {
   min-width: 55%;
   margin-bottom: none!important;
-  font-size: 1.6rem;
+  font-size: 2rem;
   margin-bottom: 2%;
 }
 
@@ -30,7 +30,7 @@
     height: 50vh;
   }
   .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.9rem;
   }
 }
 
