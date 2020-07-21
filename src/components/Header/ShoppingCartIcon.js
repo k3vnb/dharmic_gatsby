@@ -51,21 +51,20 @@ const ShoppingCartIcon = ({ cart, location }) => {
             />
             <text
               stroke="#000000"
-              transform="matrix(5.976345479488373,0,0,2.6746049008801966,-553.3264288567007,-39.34468691502293) "
               xmlspace="preserve"
               textAnchor="middle"
-              fontFamily="Arial, Helvetica, sans-serif"
-              fontSize="28"
+              fontFamily="sans"
+              fontSize={quantity < 10 ? "115" : "78"}
               id="svg_6"
-              y="36"
-              x="115.92857"
+              y={quantity < 10 ? "72" : "55"}
+              x={quantity < 10 ? "144" : "140"}
               strokeLinecap="null"
               strokeLinejoin="null"
               strokeDasharray="null"
               strokeWidth="0"
-              fill="#000000"
+              fill="#0000FF"
             >
-              {quantity < 10 && quantity}
+              {quantity}
             </text>
           </g>
         )}
