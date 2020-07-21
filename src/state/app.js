@@ -67,6 +67,7 @@ export default (state = initialState, action) => {
         state.cart,
         currentCartItem
       );
+      setLocalStorageApp({ ...state, cart: newCartWithIncrease });
       return { ...state, cart: newCartWithIncrease };
     case DECREASE_FROM_CART:
       currentCartItem = getCurrentCartItem(state.cart, payload);

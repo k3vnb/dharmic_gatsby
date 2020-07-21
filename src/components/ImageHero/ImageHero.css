@@ -1,25 +1,33 @@
-.image-container {
-  max-height: 70vh;
-  position: relative;
+.hero-container {
+  height: 66vh;
   margin-top: 20px;
+  padding-top: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+.hero-text {
+  color: white;
+  text-align: center;
+  margin: 0 auto; 
+  text-shadow: -2px 1px 2px #3639f4,2px 2px 1px #2a1788;
 }
 .hero-title {
-  color: white;
-  width: 90vw;
-  text-shadow: -2px 1px 2px #3639f4,2px 2px 1px #2a1788;
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform:translateX(-50%);
+  max-width: 90vw;
+  margin-top: 8%;
+  font-size: 2.5rem;
 }
-.hero-title--top {
-  font-size: 2rem;
-}
-.hero-title--bottom {
+.hero-subtitle {
+  margin-bottom: none!important;
   font-size: 2.3rem;
 }
+
 @media screen and (max-width: 400px){
-  .hero-title--bottom {
+  .hero-container {
+    height: 50vh;
+  }
+  .hero-title,
+  .hero-subtitle {
     font-size: 1.8rem;
   }
 }
