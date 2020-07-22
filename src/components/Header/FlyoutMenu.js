@@ -14,7 +14,7 @@ export default ({ children, setShowFlyout }) => {
     return () => {
       document.removeEventListener('click', handleClickAway);
     }
-  }, [])
+  }, [setShowFlyout])
 
   return (
     <nav className="collapsed-nav nav" ref={ref} id="flyout">
