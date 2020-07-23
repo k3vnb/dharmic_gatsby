@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 const ShoppingCartIcon = ({ cart, location }) => {
   const fillColor =
     location && location.pathname === '/cart' ? '#fcbe4a' : '#ffffff';
-  const quantity =  cart.reduce(
-    (accumulator, item) => item.quantity + accumulator,
+  const qty =  cart.reduce(
+    (accumulator, item) => item.qty + accumulator,
     0
   );
   return (
@@ -37,7 +37,7 @@ const ShoppingCartIcon = ({ cart, location }) => {
         <g fill={fillColor}>
           <path d="M0,0v14.33333h23.06771l28.66667,114.66667h96.97396l1.56771,-5.15104l14.78125,-49.71875l5.15104,-16.79688h-121.60937l-14.33333,-57.33333zM52.18229,71.66667h98.76563l-12.98958,43h-75.02604zM75.25,136.16667c-9.88216,0 -17.91667,8.03451 -17.91667,17.91667c0,9.88216 8.03451,17.91667 17.91667,17.91667c9.88216,0 17.91667,-8.03451 17.91667,-17.91667c0,-9.88216 -8.03451,-17.91667 -17.91667,-17.91667zM125.41667,136.16667c-9.88216,0 -17.91667,8.03451 -17.91667,17.91667c0,9.88216 8.03451,17.91667 17.91667,17.91667c9.88216,0 17.91667,-8.03451 17.91667,-17.91667c0,-9.88216 -8.03451,-17.91667 -17.91667,-17.91667z"></path>
         </g>
-        {quantity && (
+        {qty && (
           <g>
             <ellipse
               stroke="#000000"
@@ -54,17 +54,17 @@ const ShoppingCartIcon = ({ cart, location }) => {
               xmlSpace="preserve"
               textAnchor="middle"
               fontFamily="sans"
-              fontSize={quantity < 10 ? "115" : "78"}
+              fontSize={qty < 10 ? "115" : "78"}
               id="svg_6"
-              y={quantity < 10 ? "72" : "55"}
-              x={quantity < 10 ? "144" : "140"}
+              y={qty < 10 ? "72" : "55"}
+              x={qty < 10 ? "144" : "140"}
               strokeLinecap="null"
               strokeLinejoin="null"
               strokeDasharray="null"
               strokeWidth="0"
               fill="#0000FF"
             >
-              {quantity}
+              {qty}
             </text>
           </g>
         )}

@@ -22,15 +22,15 @@ const getNewCart = (cart, currentCartItem) => [
 ];
 
 const decreaseCartItemQuantity = (cart, currentCartItem) => {
-  if (currentCartItem.quantity === 0) {
+  if (currentCartItem.qty === 0) {
     return cart;
   }
-  currentCartItem.quantity = currentCartItem.quantity -= 1;
+  currentCartItem.qty = currentCartItem.qty -= 1;
   return getNewCart(cart, currentCartItem);
 };
 
 const increaseCartItemQuantity = (cart, currentCartItem) => {
-  currentCartItem.quantity = currentCartItem.quantity += 1;
+  currentCartItem.qty = currentCartItem.qty += 1;
   return getNewCart(cart, currentCartItem);
 };
 
@@ -49,7 +49,7 @@ export default (state = initialState, action) => {
             id: payload.id,
             details: payload,
             price: payload.price,
-            quantity: 1,
+            qty: 1,
           },
         ];
       } else {

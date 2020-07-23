@@ -10,7 +10,7 @@ export default () => {
           Thank you for reaching out! We have received your submission and we
           will reply shortly.
         </p>
-        <AniLink fade duration={0.25} to="/">
+        <AniLink fade="true" duration={0.25} to="/">
           <button type="button" className="link-to-home-btn">
             Return Home
           </button>

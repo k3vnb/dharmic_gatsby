@@ -26,7 +26,7 @@ const Header = ({ siteTitle, location }) => {
     <li key={name}>
       <AniLink
         activeClassName="active"
-        fade
+        fade="true"
         duration={0.25}
         to={path}
         className="header__nav-links"
@@ -41,7 +41,7 @@ const Header = ({ siteTitle, location }) => {
       <h1 className="cinzel header__title">
         <Logo />
         <AniLink
-          fade
+          fade="true"
           duration={0.3}
           to="/"
           style={{

@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import { clearCart } from '../../state/actions/actions';
 import Cart from './Cart';
 import Checkout from './Checkout';
 import FormPageLayout from '../formPageLayout';
 import './Cart.css';
 
+const stripe = loadStripe(
+  'pk_test_51H7WKdLSCTbrWtlC7Iuw65Pqax1PqK9hxZEsaSvSyeiwuxCdTChpvP68PUcyeN6rDdEu8kFJvlajMGpGDaIN55jD00DB7YSpGk'
+);
+
 const CartContainer = ({ cart = [], clearCart }) => {
   const [showCheckout, setShowCheckout] = useState(false);
+  const toggleShowCheckout = () => setShowCheckout(!showCheckout);
   const cartPriceTotal = cart.reduce(
-    (accumulator, item) => item.quantity * item.price + accumulator,
+    (accumulator, item) => item.qty * item.price + accumulator,
     0
   );
 
@@ -19,11 +26,15 @@ const CartContainer = ({ cart = [], clearCart }) => {
         <Cart
           cart={cart}
           clearCart={clearCart}
-          setShowCheckout={setShowCheckout}
+          toggleShowCheckout={toggleShowCheckout}
           cartPriceTotal={cartPriceTotal}
         />
       )}
-      {showCheckout && <Checkout setShowCheckout={setShowCheckout} />}
+      {showCheckout && (
+        <Elements stripe={stripe}>
+          <Checkout toggleShowCheckout={toggleShowCheckout} cart={cart} />
+        </Elements>
+      )}
     </FormPageLayout>
   );
 };

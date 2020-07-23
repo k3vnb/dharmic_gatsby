@@ -53,3 +53,7 @@
   background-color: lightgreen;
   width: 60%;
 }
+.checkout-form {
+  min-width: 60vw;
+  min-height: 50vh;
+}

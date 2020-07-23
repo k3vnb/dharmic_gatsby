@@ -30,7 +30,7 @@ const PackageItemCard = ({
         {title}
       </h5>
       <p className="package-item__card-description">{description}</p>
-      <AniLink cover fade duration={0.55} to={`/package/${strapiId}`}>
+      <AniLink fade="true" duration={0.55} to={`/package/${strapiId}`}>
         <button className="btn package-item__button">Find out more...</button>
       </AniLink>
     </article>

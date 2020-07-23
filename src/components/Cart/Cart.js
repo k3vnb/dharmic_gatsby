@@ -2,7 +2,7 @@ import React from 'react';
 import CartItem from './CartItem';
 import SEO from '../seo';
 
-const Cart = ({ cart, clearCart, setShowCheckout, cartPriceTotal }) => {
+const Cart = ({ cart, clearCart, toggleShowCheckout, cartPriceTotal }) => {
   const cartItemList = cart
     .sort((a, b) => a.id - b.id)
     .map(itemDetails => (
@@ -52,7 +52,7 @@ const Cart = ({ cart, clearCart, setShowCheckout, cartPriceTotal }) => {
               <button
                 type="button"
                 disabled={!cart.length}
-                onClick={() => setShowCheckout(true)}
+                onClick={toggleShowCheckout}
                 aria-label="checkout"
                 className="btn cart__btn cart__btn--checkout"
               >
