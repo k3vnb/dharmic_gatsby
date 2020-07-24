@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SEO from '../seo';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import { API_URL } from '../../utils/url';
 import { SmallLoadingSpinner } from '../LoadingSpinner/LoadingSpinner';
 import { useElements, useStripe, CardElement } from '@stripe/react-stripe-js';
 
@@ -32,7 +33,7 @@ const Checkout = ({ toggleShowCheckout, cart }) => {
 
   useEffect(() => {
     const loadToken = async () => {
-      const response = await fetch('http://localhost:1337/orders/payment', {
+      const response = await fetch(`${API_URL}orders/payment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
