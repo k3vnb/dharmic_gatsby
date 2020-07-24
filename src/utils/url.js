@@ -1,1 +1,1 @@
-export const API_URL = process.env.API_URL || 'http://localhost:1337';
+export const API_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:1337' : 'https://www.dharmicastrology.herokuapp.com';
