@@ -33,7 +33,7 @@ const Checkout = ({ toggleShowCheckout, cart }) => {
 
   useEffect(() => {
     const loadToken = async () => {
-      const response = await fetch(`${API_URL}orders/payment`, {
+      const response = await fetch(`${API_URL}/orders/payment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
