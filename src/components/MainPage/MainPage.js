@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import ReactMarkdown from 'react-markdown';
 import PackageItemCardList from '../PackageItemCard/PackageItemCardList';
 import FeaturedVideoList from '../FeaturedVideoList/FeaturedVideoList';
+import MailingListForm from '../MailingListForm/MailingListForm';
 import './MainPage.css';
 
 export default () => {
@@ -22,6 +23,7 @@ export default () => {
       </section>
       <PackageItemCardList />
       <FeaturedVideoList />
+      <MailingListForm />
     </div>
   );
 };
