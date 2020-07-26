@@ -57,3 +57,20 @@
   min-width: 60vw;
   min-height: 50vh;
 }
+.checkout-form__custom-inputs, .checkout-form__custom-inputs > label {
+  display: flex;
+  flex-direction: column;
+}
+.checkout-form__custom-input {
+  padding: 1%;
+}
+.checkout-form__card-element{
+  background-color: white;
+  padding: 3% .2%;
+  border-radius: 4px;
+}
+.checkout-form__card-element--active {
+  outline:none; 
+  border:1px solid #4D90FE;
+  box-shadow: 0px 0px 5px  #4D90FE!important;
+}

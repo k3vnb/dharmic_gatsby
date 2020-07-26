@@ -8,28 +8,59 @@ import { useElements, useStripe, CardElement } from '@stripe/react-stripe-js';
 const cardStyles = {
   style: {
     base: {
-      padding: '4%',
-      fontSize: '1.3rem',
-    }
-  }
-}
+      iconColor: '#c4f0ff',
+      fontWeight: 500,
+      fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
+      fontSize: '16px',
+      fontSmoothing: 'antialiased',
+      ':-webkit-autofill': {
+        color: '#fce883',
+      },
+    },
+    invalid: {
+      iconColor: '#E32E3F',
+      color: '#E32E3F',
+    },
+  },
+};
 
 const Checkout = ({ toggleShowCheckout, cart }) => {
   const [token, setToken] = useState(null);
   const [total, setTotal] = useState('loading');
+  const [cardInputIsActive, setCardInputIsActive] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
+  const [customFormFields, setCustomFormFields] = useState({
+    name: '',
+    email: '',
+  });
   const stripeObj = useStripe();
   const elements = useElements();
 
-  const handleSubmit = async (e) => {
+  const handleChange = e =>
+    setCustomFormFields({
+      ...customFormFields,
+      [e.target.name]: e.target.value,
+    });
+
+  const handleSubmit = async e => {
     e.preventDefault();
-    const result = await stripeObj.confirmCardPayment(token, {
-      payment_method: {
-        card: elements.getElement(CardElement)
-      }
-    })
-    console.log({result})
+    setIsSubmitting(true);
+    try {
+      const result = await stripeObj.confirmCardPayment(token, {
+        payment_method: {
+          card: elements.getElement(CardElement),
+        },
+      });
+      console.log({ result });
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
+  const toggleCardInputIsActive = () => setCardInputIsActive(!cardInputIsActive);
 
   useEffect(() => {
     const loadToken = async () => {
@@ -63,10 +94,46 @@ const Checkout = ({ toggleShowCheckout, cart }) => {
             <div className="checkout__payment">
               {/* stripe api total is in cents */}
               <h2 style={{ textAlign: 'center' }}>Checkout</h2>
+              <div className="checkout-form__custom-inputs">
+                <label htmlFor="name">
+                  Your Name *
+                  <input
+                    className="checkout-form__custom-input"
+                    id="name"
+                    type="text"
+                    name="name"
+                    value={customFormFields.name}
+                    required
+                    onChange={handleChange}
+                  />
+                </label>
+                <label htmlFor="email">
+                  Your Email *
+                  <input
+                    className="checkout-form__custom-input"
+                    id="email"
+                    type="email"
+                    name="email"
+                    value={customFormFields.email}
+                    required
+                    onChange={handleChange}
+                  />
+                </label>
+              </div>
               <p style={{ textAlign: 'right', fontFamily: 'Arial, sans' }}>
                 Total: ${parseFloat(total / 100).toFixed(2)}
               </p>
-              <CardElement options={cardStyles} />
+              Credit Card Info
+              <CardElement
+                className={
+                  cardInputIsActive
+                    ? 'checkout-form__card-element checkout-form__card-element--active'
+                    : 'checkout-form__card-element'
+                }
+                options={cardStyles}
+                onFocus={toggleCardInputIsActive}
+                onBlur={toggleCardInputIsActive}
+              />
             </div>
           )}
           {error && <ErrorMessage message={error} />}
@@ -80,7 +147,7 @@ const Checkout = ({ toggleShowCheckout, cart }) => {
             </button>
             <button
               type="button"
-              disabled={!stripeObj || error}
+              disabled={!stripeObj || error || isSubmitting}
               onClick={handleSubmit}
               aria-label="checkout"
               className="btn cart__btn cart__btn--checkout"

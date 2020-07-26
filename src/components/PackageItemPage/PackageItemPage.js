@@ -36,7 +36,8 @@ const PackageItemPage = ({
         <div className="package-item-page__main-content--inner">
           <h2 className="package-item-page__title">{title}</h2>
           <div className="package-item-page__description">
-            <ReactMarkdown source={description} />
+            <ReactMarkdown className="package-item-page__description--main" source={description} />
+            <p className="package-item-page__description--contact"><AniLink fade to="/contact">Contact Us</AniLink> to discuss scheduling.</p>
             <p className="package-item-page__price">Price: ${price} USD</p>
             <p className="package-item-page__subtext">
               *ask about special sliding scale rates for those that have
