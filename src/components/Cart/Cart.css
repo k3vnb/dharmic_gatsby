@@ -11,7 +11,7 @@
   padding: 1%;
 }
 .table-header__subtext {
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 .cart-total {
   text-align: right;
@@ -19,17 +19,18 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 .cart-total__subtext {
-  font-size: .7rem;
+  font-size: 0.7rem;
 }
 .cart-item-control-btn {
   background-color: transparent;
   border: none;
   color: rgb(61, 61, 245);
   font-size: 1.2rem;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .cart-item-control-btn--remove {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 .cart__btn-container {
   display: flex;
@@ -57,20 +58,27 @@
   min-width: 60vw;
   min-height: 50vh;
 }
-.checkout-form__custom-inputs, .checkout-form__custom-inputs > label {
+.checkout-form__custom-inputs,
+.checkout-form__custom-inputs > label {
   display: flex;
   flex-direction: column;
 }
 .checkout-form__custom-input {
   padding: 1%;
+  border: 1px solid transparent;
 }
-.checkout-form__card-element{
+.checkout-form__card-element {
   background-color: white;
-  padding: 3% .2%;
+  padding: 3% 0.2%;
   border-radius: 4px;
+  border: 1px solid transparent;
 }
-.checkout-form__card-element--active {
-  outline:none; 
-  border:1px solid #4D90FE;
-  box-shadow: 0px 0px 5px  #4D90FE!important;
+.checkout-form__card-element--focus,
+.checkout-form__custom-input:focus {
+  outline: none;
+  border: 1px solid #4d90fe !important;
+  box-shadow: 0px 0px 5px #4d90fe !important;
+}
+.checkout-form__custom-input--invalid {
+  border: 1px solid red!important;
 }

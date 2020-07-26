@@ -8,10 +8,6 @@ import Checkout from './Checkout';
 import FormPageLayout from '../formPageLayout';
 import './Cart.css';
 
-const stripe = loadStripe(
-  'pk_test_51H7WKdLSCTbrWtlC7Iuw65Pqax1PqK9hxZEsaSvSyeiwuxCdTChpvP68PUcyeN6rDdEu8kFJvlajMGpGDaIN55jD00DB7YSpGk'
-);
-
 const CartContainer = ({ cart = [], clearCart }) => {
   const [showCheckout, setShowCheckout] = useState(false);
   const toggleShowCheckout = () => setShowCheckout(!showCheckout);
@@ -31,7 +27,11 @@ const CartContainer = ({ cart = [], clearCart }) => {
         />
       )}
       {showCheckout && (
-        <Elements stripe={stripe}>
+        <Elements
+          stripe={loadStripe(
+            'pk_test_51H7WKdLSCTbrWtlC7Iuw65Pqax1PqK9hxZEsaSvSyeiwuxCdTChpvP68PUcyeN6rDdEu8kFJvlajMGpGDaIN55jD00DB7YSpGk'
+          )}
+        >
           <Checkout toggleShowCheckout={toggleShowCheckout} cart={cart} />
         </Elements>
       )}
