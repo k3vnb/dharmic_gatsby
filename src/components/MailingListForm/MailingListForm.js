@@ -7,9 +7,11 @@ const MailingListForm = () => {
     <form
       className="join-mailing-list-form"
       name="join-mailing-list"
-      method="POST"
+      method="post"
       netlify-honeypot="bot-field"
+      netlify
       data-netlify="true"
+      action="/"
     >
       <h4 className="join-mailing-list__title">Sign up for our Mailing List</h4>
       <h5 className="join-mailing-list__subtitle tangerine">
