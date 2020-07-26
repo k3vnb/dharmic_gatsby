@@ -18,17 +18,15 @@ const MailingListForm = () => {
       </h5>
       <div className="join-mailing-list__form-field-container">
         <input type="hidden" name="bot-field" />
-        <label
-          htmlFor="join-mailing-list__email-input"
-          className="join-mailing-list-form__label"
-        >
+        <input type="hidden" name="form-name" value="contact" />
+        <label htmlFor="email" className="join-mailing-list-form__label">
           <span className="sr-only">Enter Your Email: </span>
           <input
             className="join-mailing-list-form__input"
             placeholder="Enter your email"
             type="email"
             name="email"
-            id="join-mailing-list__email-input"
+            id="email"
             required
           />
         </label>
