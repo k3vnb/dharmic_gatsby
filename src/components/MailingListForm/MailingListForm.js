@@ -11,7 +11,7 @@ const MailingListForm = () => {
       netlify-honeypot="bot-field"
       netlify
       data-netlify="true"
-      action="/"
+      onSubmit={e => e.preventDefault()}
     >
       <h4 className="join-mailing-list__title">Sign up for our Mailing List</h4>
       <h5 className="join-mailing-list__subtitle tangerine">
