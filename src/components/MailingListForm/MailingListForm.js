@@ -17,7 +17,7 @@ const MailingListForm = () => {
       <h5 className="join-mailing-list__subtitle tangerine">
         Receive news, offers, &amp; updates...
       </h5>
-      <div className="join-mailing-list__form-field-container">
+      {/* <div className="join-mailing-list__form-field-container"> */}
         <input type="hidden" name="bot-field" />
         <label
           htmlFor="join-mailing-list__email-input"
@@ -30,12 +30,13 @@ const MailingListForm = () => {
             type="email"
             name="email"
             id="join-mailing-list__email-input"
+            required
           />
         </label>
         <button className="btn join-mailing-list-form__btn" type="submit">
           Submit
         </button>
-      </div>
+      {/* </div> */}
     </form>
   );
 };
