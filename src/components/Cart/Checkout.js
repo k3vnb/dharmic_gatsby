@@ -1,33 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import SEO from '../seo';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import cardStyles from './stripeCardStyles';
 import { validateEmailAddress } from '../../utils/regex';
 import { API_URL } from '../../utils/url';
 import { SmallLoadingSpinner } from '../LoadingSpinner/LoadingSpinner';
 import { useElements, useStripe, CardElement } from '@stripe/react-stripe-js';
 
-const cardStyles = {
-  style: {
-    base: {
-      iconColor: '#c4f0ff',
-      fontWeight: 500,
-      fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
-      fontSize: '16px',
-      fontSmoothing: 'antialiased',
-      ':-webkit-autofill': {
-        color: '#fce883',
-      },
-    },
-    invalid: {
-      iconColor: '#E32E3F',
-      color: '#E32E3F',
-    },
-  },
-};
-
 const Checkout = ({ toggleShowCheckout, cart }) => {
   const [token, setToken] = useState(null);
-  const [total, setTotal] = useState('loading');
+  const [total, setTotal] = useState(null);
   const [cardInputIsFocused, setCardInputIsFocused] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [invalidFields, setInvalidFields] = useState([]);
@@ -35,46 +17,10 @@ const Checkout = ({ toggleShowCheckout, cart }) => {
   const [customFormFields, setCustomFormFields] = useState({
     name: '',
     email: '',
+    confirmEmail: '',
   });
   const stripeObj = useStripe();
   const elements = useElements();
-
-  const checkFieldsAreValid = () => {
-    const invalidsArr = [];
-    if (!customFormFields.name.length) invalidsArr.push('name');
-    if (!validateEmailAddress(customFormFields.email)) invalidsArr.push('email');
-    setInvalidFields(invalidsArr);
-    return !invalidsArr.length;
-  }
-
-  const handleChange = e =>
-    setCustomFormFields({
-      ...customFormFields,
-      [e.target.name]: e.target.value,
-    });
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-    setIsSubmitting(true);
-      try {
-        if (!checkFieldsAreValid()) {
-          throw new Error('Some fields are invalid')
-        }
-        const result = await stripeObj.confirmCardPayment(token, {
-          payment_method: {
-            card: elements.getElement(CardElement),
-          },
-        });
-        console.log({ result });
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setIsSubmitting(false);
-      }
-  };
-
-  const toggleCardInputIsFocused = () =>
-    setCardInputIsFocused(!cardInputIsFocused);
 
   useEffect(() => {
     const loadToken = async () => {
@@ -99,6 +45,61 @@ const Checkout = ({ toggleShowCheckout, cart }) => {
     loadToken();
   }, [cart]);
 
+  const checkFieldsAreValid = () => {
+    const invalidsArr = [];
+    if (!customFormFields.name.length) invalidsArr.push('name');
+    if (!validateEmailAddress(customFormFields.email))
+      invalidsArr.push('email');
+    if (customFormFields.email !== customFormFields.confirmEmail)
+      invalidsArr.push('confirm-email');
+    setInvalidFields(invalidsArr);
+    return !invalidsArr.length;
+  };
+
+  const handleChange = e =>
+    setCustomFormFields({
+      ...customFormFields,
+      [e.target.name]: e.target.value,
+    });
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      if (!checkFieldsAreValid()) {
+        throw new Error('Some fields are invalid');
+      }
+      const result = await stripeObj.confirmCardPayment(token, {
+        payment_method: {
+          card: elements.getElement(CardElement),
+        },
+      });
+      // console.log({ result });
+      const { paymentIntent } = result;
+      const { name, email } = customFormFields;
+      const data = {
+        paymentIntent,
+        name,
+        email,
+        cart,
+      };
+      fetch(`${API_URL}/orders`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const toggleCardInputIsFocused = () =>
+    setCardInputIsFocused(!cardInputIsFocused);
+
   if (token || error) {
     return (
       <>
@@ -106,7 +107,6 @@ const Checkout = ({ toggleShowCheckout, cart }) => {
         <form className="checkout-form">
           {token && (
             <div className="checkout__payment">
-              {/* stripe api total is in cents */}
               <h2 style={{ textAlign: 'center' }}>Checkout</h2>
               <div className="checkout-form__custom-inputs">
                 <label htmlFor="name">
@@ -141,6 +141,22 @@ const Checkout = ({ toggleShowCheckout, cart }) => {
                     onChange={handleChange}
                   />
                 </label>
+                <label htmlFor="confirm-email">
+                  Confirm Email *
+                  <input
+                    className={
+                      invalidFields.includes('confirm-email')
+                        ? 'checkout-form__custom-input checkout-form__custom-input--invalid input-reset'
+                        : 'checkout-form__custom-input input-reset'
+                    }
+                    id="confirm-email"
+                    type="email"
+                    name="confirmEmail"
+                    value={customFormFields.confirmEmail}
+                    required
+                    onChange={handleChange}
+                  />
+                </label>
               </div>
               Credit Card Info
               <CardElement
@@ -154,7 +170,8 @@ const Checkout = ({ toggleShowCheckout, cart }) => {
                 onBlur={toggleCardInputIsFocused}
               />
               <p style={{ textAlign: 'right', fontFamily: 'Arial, sans' }}>
-                Total: ${parseFloat(total / 100).toFixed(2)}
+                {/* stripe api total is in cents */}
+                Total: ${total && parseFloat(total / 100).toFixed(2)}
               </p>
             </div>
           )}
