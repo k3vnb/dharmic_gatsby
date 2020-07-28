@@ -12,6 +12,7 @@ const Checkout = ({ toggleShowCheckout, cart }) => {
   const [total, setTotal] = useState(null);
   const [cardInputIsFocused, setCardInputIsFocused] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [invalidFields, setInvalidFields] = useState([]);
   const [error, setError] = useState(null);
   const [customFormFields, setCustomFormFields] = useState({
@@ -89,6 +90,14 @@ const Checkout = ({ toggleShowCheckout, cart }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
+      }).then(response => {
+        if (!response.ok) {
+          console.log(response);
+          setError(`${response.status} - Something went wrong`);
+        } else {
+          setSuccess(true);
+          return response.json();
+        }
       });
     } catch (err) {
       console.error(err);
@@ -104,8 +113,8 @@ const Checkout = ({ toggleShowCheckout, cart }) => {
     return (
       <>
         <SEO title="checkout" />
-        <form className="checkout-form">
-          {token && (
+        {token && !error && !success && (
+          <form className="checkout-form">
             <div className="checkout__payment">
               <h2 style={{ textAlign: 'center' }}>Checkout</h2>
               <div className="checkout-form__custom-inputs">
@@ -171,30 +180,31 @@ const Checkout = ({ toggleShowCheckout, cart }) => {
               />
               <p style={{ textAlign: 'right', fontFamily: 'Arial, sans' }}>
                 {/* stripe api total is in cents */}
-                Total: ${total && parseFloat(total / 100).toFixed(2)}
+                Total: ${total && parseFloat(total / 100).toFixed(2)} USD
               </p>
+              <div className="cart__btn-container">
+                <button
+                  type="reset"
+                  className="btn cart__btn cart__btn--clear"
+                  onClick={toggleShowCheckout}
+                >
+                  Go Back to Cart
+                </button>
+                <button
+                  type="submit"
+                  disabled={!stripeObj || error || isSubmitting}
+                  onClick={handleSubmit}
+                  aria-label="checkout"
+                  className="btn cart__btn cart__btn--checkout"
+                >
+                  Submit Purchase
+                </button>
+              </div>
             </div>
-          )}
-          {error && <ErrorMessage message={error} />}
-          <div className="cart__btn-container">
-            <button
-              type="reset"
-              className="btn cart__btn cart__btn--clear"
-              onClick={toggleShowCheckout}
-            >
-              Go Back to Cart
-            </button>
-            <button
-              type="submit"
-              disabled={!stripeObj || error || isSubmitting}
-              onClick={handleSubmit}
-              aria-label="checkout"
-              className="btn cart__btn cart__btn--checkout"
-            >
-              Submit Purchase
-            </button>
-          </div>
-        </form>
+          </form>
+        )}
+        {error && <ErrorMessage message={error} />}
+        {success && <div>Success!</div>}
       </>
     );
   } else {
