@@ -5,20 +5,20 @@ import './formPageLayout.css';
 
 const FormPageLayout = ({ children }) => {
   const data = useStaticQuery(graphql`
-  query {
-    water: file(relativePath: { eq: "calm-water.jpg" }) {
-      childImageSharp {
-        fluid {
-          base64
-          aspectRatio
-          sizes
-          src
-          srcSet
+    query {
+      water: file(relativePath: { eq: "calm-water.jpg" }) {
+        childImageSharp {
+          fluid {
+            base64
+            aspectRatio
+            sizes
+            src
+            srcSet
+          }
         }
       }
     }
-  }
-`);
+  `);
 
   return (
     <section
@@ -27,9 +27,7 @@ const FormPageLayout = ({ children }) => {
         backgroundImage: `url(${data.water.childImageSharp.fluid.src})`,
       }}
     >
-      <div className="form-page-container--inner">
-        {children}
-      </div>
+      <div className="form-page-container--inner">{children}</div>
     </section>
   );
 };

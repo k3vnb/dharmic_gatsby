@@ -32,7 +32,7 @@ const CartContainer = ({ cart = [], clearCart }) => {
             'pk_test_51H7WKdLSCTbrWtlC7Iuw65Pqax1PqK9hxZEsaSvSyeiwuxCdTChpvP68PUcyeN6rDdEu8kFJvlajMGpGDaIN55jD00DB7YSpGk'
           )}
         >
-          <Checkout toggleShowCheckout={toggleShowCheckout} cart={cart} />
+          <Checkout toggleShowCheckout={toggleShowCheckout} cart={cart} clearCart={clearCart} />
         </Elements>
       )}
     </FormPageLayout>

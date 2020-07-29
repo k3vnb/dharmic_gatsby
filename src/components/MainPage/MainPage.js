@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import ReactMarkdown from 'react-markdown';
 import PackageItemCardList from '../PackageItemCard/PackageItemCardList';
 import FeaturedVideoList from '../FeaturedVideoList/FeaturedVideoList';
+import AmazonBookList from '../AmazonBookList/AmazonBookList';
 import MailingListForm from '../MailingListForm/MailingListForm';
 import './MainPage.css';
 
@@ -23,6 +24,7 @@ export default () => {
       </section>
       <PackageItemCardList />
       <FeaturedVideoList />
+      <AmazonBookList />
       <MailingListForm />
     </div>
   );

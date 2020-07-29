@@ -7,7 +7,7 @@ import { API_URL } from '../../utils/url';
 import { SmallLoadingSpinner } from '../LoadingSpinner/LoadingSpinner';
 import { useElements, useStripe, CardElement } from '@stripe/react-stripe-js';
 
-const Checkout = ({ toggleShowCheckout, cart }) => {
+const Checkout = ({ toggleShowCheckout, cart, clearCart }) => {
   const [token, setToken] = useState(null);
   const [total, setTotal] = useState(null);
   const [cardInputIsFocused, setCardInputIsFocused] = useState(false);
@@ -36,6 +36,7 @@ const Checkout = ({ toggleShowCheckout, cart }) => {
       });
       const data = await response.json();
       if (data.error) {
+        alert('hi');
         setError(data.error);
       } else {
         setError(null);
@@ -44,7 +45,7 @@ const Checkout = ({ toggleShowCheckout, cart }) => {
       }
     };
     loadToken();
-  }, [cart]);
+  }, []);
 
   const checkFieldsAreValid = () => {
     const invalidsArr = [];
@@ -103,6 +104,7 @@ const Checkout = ({ toggleShowCheckout, cart }) => {
       console.error(err);
     } finally {
       setIsSubmitting(false);
+      clearCart();
     }
   };
 
