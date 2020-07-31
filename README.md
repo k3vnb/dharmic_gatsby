@@ -1,7 +1,13 @@
 # Dharmic Gatsby
 Client side static site for commercial client, with blog & ecommerce capabilities.
 
-Backend provided by Strapi headless CMS.
+
+## Tech Stack
+Gatsby & React, Redux, GraphQL.
+Integrated with Gatsby Cloud & Netlify.
+Payment processing via Stripe API.
+
+Backend provided by Strapi headless CMS & Heroku.
 
 
 ## Hooks

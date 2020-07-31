@@ -22,7 +22,7 @@ const getNewCart = (cart, currentCartItem) => [
 ];
 
 const decreaseCartItemQuantity = (cart, currentCartItem) => {
-  if (currentCartItem.qty === 0) {
+  if (currentCartItem.qty === 1) {
     return cart;
   }
   currentCartItem.qty = currentCartItem.qty -= 1;
