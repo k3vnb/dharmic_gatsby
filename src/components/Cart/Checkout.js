@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SEO from '../seo';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import SuccessMessage from './SuccessMessage';
 import cardStyles from './stripeCardStyles';
 import { validateEmailAddress } from '../../utils/regex';
 import { API_URL } from '../../utils/url';
@@ -13,6 +14,7 @@ const Checkout = ({ toggleShowCheckout, cart, clearCart }) => {
   const [cardInputIsFocused, setCardInputIsFocused] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [confirmationNumber, setConfirmationNumber] = useState(null);
   const [invalidFields, setInvalidFields] = useState([]);
   const [error, setError] = useState(null);
   const [customFormFields, setCustomFormFields] = useState({
@@ -36,7 +38,6 @@ const Checkout = ({ toggleShowCheckout, cart, clearCart }) => {
       });
       const data = await response.json();
       if (data.error) {
-        alert('hi');
         setError(data.error);
       } else {
         setError(null);
@@ -76,7 +77,6 @@ const Checkout = ({ toggleShowCheckout, cart, clearCart }) => {
           card: elements.getElement(CardElement),
         },
       });
-      // console.log({ result });
       const { paymentIntent } = result;
       const { name, email } = customFormFields;
       const data = {
@@ -91,15 +91,20 @@ const Checkout = ({ toggleShowCheckout, cart, clearCart }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
-      }).then(response => {
-        if (!response.ok) {
-          console.log(response);
-          setError(`${response.status} - Something went wrong`);
-        } else {
+      })
+        .then(response => {
+          if (!response.ok) {
+            console.log(response);
+            throw new Error(`${response.status} - Something went wrong`);
+          }
           setSuccess(true);
           return response.json();
-        }
-      });
+        })
+        .then(({ orderId, id }) => {
+          const orderIdSubStr = orderId.substring(orderId.length - 5)
+          setConfirmationNumber(`${id}-${orderIdSubStr}`)
+        })
+        .catch(err => setError(err.message));
     } catch (err) {
       console.error(err);
     } finally {
@@ -206,7 +211,7 @@ const Checkout = ({ toggleShowCheckout, cart, clearCart }) => {
           </form>
         )}
         {error && <ErrorMessage message={error} />}
-        {success && <div>Success!</div>}
+        {success && <SuccessMessage confirmationNumber={confirmationNumber} />}
       </>
     );
   } else {

@@ -82,3 +82,13 @@
 .checkout-form__custom-input--invalid {
   border: 1px solid red!important;
 }
+.success-message {
+  width: 60vw;
+  max-width: 550px;
+  text-align: center;
+  flex-direction: column;
+}
+.success-confirmation-number {
+  font-family: monospace;
+  font-size: 1.1rem;
+}

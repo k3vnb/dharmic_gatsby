@@ -14,7 +14,6 @@ const AmazonBookList = () => {
       }
     }
   `);
-  console.log(data);
   return (
     <>
       <h3 className="cinzel main-page__title">Recommended Reading</h3>
