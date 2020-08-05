@@ -28,9 +28,11 @@ const MailingListForm = () => {
     });
     if (response.status === 202) {
       setEmail('');
-      return setConfirmationMessage('Thank you! You have been added to the mailing list');
+      return setConfirmationMessage(
+        'Thank you! You have been added to the mailing list'
+      );
     }
-    return setConfirmationMessage('Oops, there was a problem!')
+    return setConfirmationMessage('Oops, there was a problem!');
   };
 
   return (
@@ -88,7 +90,17 @@ const MailingListForm = () => {
           </button>
         </div>
       )}
-      {!!confirmationMessage && <div>&#127773; {confirmationMessage} &#127774;</div>}
+      {!!confirmationMessage && (
+        <div>
+          <span role="img" aria-label="moon emoji">
+            &#127773;
+          </span>{' '}
+          {confirmationMessage}{' '}
+          <span role="img" aria-label="sun emoji">
+            &#127774;
+          </span>
+        </div>
+      )}
     </form>
   );
 };
