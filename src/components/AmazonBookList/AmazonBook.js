@@ -1,15 +1,22 @@
 import React from 'react';
 
-export default ({ srcUrl, title }) => (
+export default ({ srcUrl, title, imgUrl }) => (
   <div className="amazon-book-link">
-    <iframe
-      title={title}
-      style={{ width: 120, height: 240 }}
-      marginWidth="0"
-      marginHeight="0"
-      scrolling="no"
-      frameBorder="0"
-      src={srcUrl}
+    <img
+      className="amazon-book__thumbnail"
+      src={imgUrl}
+      alt={`${title} thumbnail`}
     />
+    <div className="amazon-book__title"><a href={srcUrl}>{title}</a></div>
+    <a href={srcUrl}>
+      <button className="amazon-book__btn btn btn-reset" type="button">
+        <img
+          className="amzn-logo"
+          src="https://img.icons8.com/color/48/000000/amazon.png"
+          alt="amazon logo"
+        />
+        <span className="amazon-book__btn-text">Shop now</span>
+      </button>
+    </a>
   </div>
 );

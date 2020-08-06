@@ -8,13 +8,53 @@
   justify-content: space-around;
 }
 .amazon-book-link {
-  width: 120px;
-  height: 240px;
+  width: 200px;
+  height: 300px;
   margin: 3%;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.103), -3px -3px 3px rgba(0, 0, 0, 0.055);
   border-radius: 2px;
+  font-size: .8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
 }
-.amazon-link-iframe {
+.amazon-book__thumbnail {
+  height: 60%;
+  object-fit: contain;
+  margin: 0 auto;
   width: 100%;
-  height: 240px;
+  background-color: rgb(151, 151, 151);
+  border-radius: 2px 2px 0 0;
+  padding: 2%;
+}
+.amazon-book__title {
+  width: 100%;
+  line-height: 1.2em;
+  overflow: hidden;
+  padding: .5% 1.5%;
+  text-align: center;
+  font-size: .75rem;
+  margin: auto;
+}
+.amazon-book__btn {
+  background-color: rgb(235, 194, 15);
+  position: absolute;
+  bottom: 2%;
+  left: 4%;
+  width: 92%;
+  height: 32px;
+  border: none;
+  box-shadow: .5px .5px 3px rgba(0, 0, 0, 0.219), -.5px -.5px 3px rgba(0, 0, 0, 0.082);
+}
+.amazon-book__btn-text {
+  margin-left: -17px;
+  margin-top: 2%;
+}
+.amazon-book__btn:hover {
+  box-shadow: .5px .5px 5px rgba(0, 0, 0, 0.39), -.5px -.5px 3px rgba(0, 0, 0, 0.212);
+}
+.amzn-logo {
+  height: 24px;
+  width: 24px;
+  margin-top: 2%;
+  float: left;
 }

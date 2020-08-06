@@ -11,6 +11,7 @@ const AmazonBookList = () => {
           srcUrl
           title
           strapiId
+          img_url
         }
       }
     }
@@ -24,6 +25,7 @@ const AmazonBookList = () => {
             key={book.strapiId}
             srcUrl={book.srcUrl}
             title={book.title}
+            imgUrl={book.img_url}
           />
         ))}
       </div>
