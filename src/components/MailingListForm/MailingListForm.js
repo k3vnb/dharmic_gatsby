@@ -66,6 +66,7 @@ const MailingListForm = () => {
           </label>
           {/* h o n e y p o t */}
           <label htmlFor="email" className="hunneepawt">
+            Email
             <input
               autoComplete="turnOff"
               type="email"
@@ -76,6 +77,7 @@ const MailingListForm = () => {
             />
           </label>
           <label htmlFor="name" className="hunneepawt">
+            Name
             <input
               autoComplete="turnOff"
               type="text"
