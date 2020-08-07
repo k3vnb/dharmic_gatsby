@@ -27,7 +27,7 @@ const Layout = ({ children, location }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} location={location} />
-      <main>{children}</main>
+      <main style={{ paddingTop: 22 }}>{children}</main>
       <Footer />
     </>
   );

@@ -9,7 +9,7 @@ export default ({ srcUrl, title, imgUrl }) => {
       return () => document.removeEventListener('scroll', onLoad);
     }, [showThumbnail]);
   return (
-  <div className="amazon-book-link">
+  <div className="amazon-book-card">
     <img
       className="amazon-book__thumbnail"
       src={imgUrl}

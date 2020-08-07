@@ -1,4 +1,85 @@
-.article-list-container__page {
-  margin-top:  100px;
+.article-list__page {
+  padding: 8% 10%;
+  min-height: 100vh;
+  background-color: #f3f0ca;
+}
+.article-list__page-title {
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.article-list__container {
+
+}
+.article-list__card {
+  margin-bottom: 5%;
+  width: 100%;
+  max-width: 750px;
+  background-color: white;
+  border-radius: 16px;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.article-list__card-text {
+  padding: 4% 2% 4% 4%;
+  line-height: 16px;
+}
+.article-list__card-text h3 {
+  text-decoration: none;
+}
+.article-list__card-thumbnail {
+  border-radius: 50%;
+  height: 130px;
+  width: 130px;
+  object-fit: cover;
+}
+.article-list__card-thumbnail--container {
+  min-width: 180px;
+  background-color: rgb(252, 158, 158);
+  border-radius: 16px 0 0 16px;
+}
+.article-list__card-thumbnail--container img {
+  margin-bottom: 0 !important;
+}
+.article__page {
+  min-height: 100vh;
+  padding: 8%;
+  background-color: #f3f0ca;
+  flex-direction: column;
+}
+.article__page article {
+  margin-top: 3%;
+}
+.article__page--inner {
+  background-color: white;
   padding: 5%;
+  border-radius: 16px;
+  width: 80vw;
+  max-width: 850px;
+}
+.article__title {
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.article__timestamp {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: .8rem;
+}
+@media screen and (max-width: 500px) {
+  .article-list__card-thumbnail--container {
+    min-width: 100px;
+    background-size: cover;
+  }
+  .article-list__card-thumbnail {
+    height: 90px;
+    width: 90px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .article-list__card-thumbnail--container {
+    min-width: 60px;
+  }
+  .article-list__card-thumbnail {
+    height: 50px;
+    width: 50px;
+  }
 }

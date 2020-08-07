@@ -1,7 +1,5 @@
 import React from 'react';
 
-// import { graphql } from 'gatsby';
-
 import Layout from '../components/layout';
 import MainPage from '../components/MainPage/MainPage';
 import ImageHero from '../components/ImageHero/ImageHero';
@@ -18,19 +16,3 @@ const IndexPage = ({ location }) => {
 };
 
 export default IndexPage;
-
-// export const pageQuery = graphql`
-//   query MyQuery {
-//     allStrapiArticle {
-//       nodes {
-//         id
-//         title
-//         content
-//         updated_at
-//       }
-//     }
-//     strapiMainPageDescription {
-//       content
-//     }
-//   }
-// `;
