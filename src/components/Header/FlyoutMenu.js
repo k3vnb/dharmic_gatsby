@@ -17,7 +17,7 @@ export default ({ children, setShowFlyout }) => {
   }, [setShowFlyout])
 
   return (
-    <nav className="collapsed-nav nav" ref={ref} id="flyout">
+    <nav className="flyout-nav nav" ref={ref} id="flyout">
       <div ref={ref} className="flyout-menu">
         {children}
       </div>

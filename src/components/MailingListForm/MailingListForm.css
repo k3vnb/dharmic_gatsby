@@ -1,6 +1,7 @@
 .join-mailing-list-form {
   background-color: #f3f0ca;
   padding: 8% 4%;
+  margin-bottom: 8%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,11 +11,12 @@
   border-radius: 8px;
 }
 .join-mailing-list__title {
-  font-size: 1.3rem;
+  font-size: 2rem;
+  letter-spacing: 2px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .join-mailing-list__subtitle {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 .join-mailing-list__form-field-container {
@@ -53,4 +55,17 @@
   height: 0;
   width: 0;
   z-index: -1;
+}
+@media screen and (max-width: 450px){
+  .join-mailing-list__title {
+    font-size: 1.7rem;
+    letter-spacing: 1.5px;
+  }
+  .join-mailing-list__subtitle {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  .join-mailing-list-form__btn {
+    width: 30%;
+  }
 }

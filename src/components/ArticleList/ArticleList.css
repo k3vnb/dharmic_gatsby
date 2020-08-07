@@ -21,12 +21,13 @@
   display: flex;
   font-family: Arial, Helvetica, sans-serif;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.39);
+  text-decoration: none;
 }
 .article-list__card-text {
   padding: 4% 2% 4% 4%;
   line-height: 16px;
 }
-.article-list__card-text h3 {
+.article-list__card-text > a {
   text-decoration: none;
 }
 .article-list__card-thumbnail {
