@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import ArticleListCard from './ArticleListCard';
 import './ArticleList.css';
-import Article from './Article';
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -14,12 +13,13 @@ export default () => {
           }
         }
       }
-      allStrapiArticle {
+      allStrapiArticle(sort: {order: DESC, fields: created_at}) {
         nodes {
           strapiId
           title
           content
           synopsis
+          created_at
           thumbnail {
             childImageSharp {
               fixed(width: 150) {
@@ -31,7 +31,6 @@ export default () => {
       }
     }
   `);
-  console.log(data.allStrapiArticle)
   return (
     <section className="article-list__page">
       <h2 className="article-list__page-title ">

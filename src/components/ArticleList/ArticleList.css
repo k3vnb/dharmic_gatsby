@@ -8,16 +8,19 @@
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .article-list__container {
-
+  width: 100%;
 }
 .article-list__card {
   margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
   max-width: 750px;
   background-color: white;
   border-radius: 16px;
   display: flex;
   font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.39);
 }
 .article-list__card-text {
   padding: 4% 2% 4% 4%;
