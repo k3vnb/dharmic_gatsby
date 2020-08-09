@@ -40,6 +40,10 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
+          name: `keywords`,
+          content: 'jyotish, astrology, spiritual, coaching, meditation, mindfulness, vedic, dharmic astrology',
+        },
+        {
           property: `og:title`,
           content: title,
         },
