@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 export default ({ thumbnail, strapiId, title, synopsis }) => (
   <article className="article-list__card">
     <div className="article-list__card-thumbnail--container flex-center" style={{ backgroundImage: `url(${thumbnail})`}}>
-      <img src={thumbnail} className="article-list__card-thumbnail" alt={`${title} image`} />
+      <img src={thumbnail} className="article-list__card-thumbnail" alt={`${title}`} />
     </div>
     <div className="article-list__card-text">
       <Link to={`/articles/${strapiId}`}>

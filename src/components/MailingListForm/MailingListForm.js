@@ -93,12 +93,12 @@ const MailingListForm = () => {
         </div>
       )}
       {!!confirmationMessage && (
-        <div>
-          <span role="img" aria-label="moon emoji">
+        <div style={{ display: 'flex', 'padding': '0 2%', width: '100%', justifyContent: 'space-around' }}>
+          <span className="confirmation-emoji" role="img" aria-label="moon emoji">
             &#127773;
           </span>{' '}
-          {confirmationMessage}{' '}
-          <span role="img" aria-label="sun emoji">
+          <span>{confirmationMessage}{' '}</span>
+          <span className="confirmation-emoji" role="img" aria-label="sun emoji">
             &#127774;
           </span>
         </div>

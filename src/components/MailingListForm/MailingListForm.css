@@ -56,6 +56,9 @@
   width: 0;
   z-index: -1;
 }
+.confirmation-emoji {
+  font-size: 35px;
+}
 @media screen and (max-width: 450px){
   .join-mailing-list__title {
     font-size: 1.7rem;
