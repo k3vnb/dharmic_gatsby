@@ -38,7 +38,10 @@ const Checkout = ({ toggleShowCheckout, cart, clearCart }) => {
       });
       const data = await response.json();
       if (data.error) {
-        setError(data.error);
+        setError(`
+          Payment could not be processed.
+          ${data.error}}
+        `);
       } else {
         setError(null);
         setToken(data.client_secret);

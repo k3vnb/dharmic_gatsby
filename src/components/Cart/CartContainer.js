@@ -29,7 +29,7 @@ const CartContainer = ({ cart = [], clearCart }) => {
       {showCheckout && (
         <Elements
           stripe={loadStripe(
-            'pk_test_51H7WKdLSCTbrWtlC7Iuw65Pqax1PqK9hxZEsaSvSyeiwuxCdTChpvP68PUcyeN6rDdEu8kFJvlajMGpGDaIN55jD00DB7YSpGk'
+            'pk_live_51H7WKdLSCTbrWtlCKc37MthW6HwlHuRnrI1KKpq47AqWJfFyTPLbjcJxKokOC9LRWSOSCkEOhE7aAEbTeubJIDkh00qVFe5xPd'
           )}
         >
           <Checkout toggleShowCheckout={toggleShowCheckout} cart={cart} clearCart={clearCart} />
