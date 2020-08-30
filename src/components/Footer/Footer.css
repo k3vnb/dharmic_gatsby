@@ -5,4 +5,22 @@
   width: 100%;
   min-height: 30px;
   font-size: .7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer__phone-contact {
+  color: white;
+  text-decoration: none;
+  font-size: .8rem;
+  min-width: 150px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.footer__phone-contact svg {
+  margin-right: 3%;
+}
+.footer__phone-contact span {
+  padding-bottom: 3%;
 }
